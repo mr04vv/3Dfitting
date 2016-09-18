@@ -1,0 +1,148 @@
+nt window_w = 900;
+int window_h = 600;
+int img_w = 1035;
+int img_h = 2462;
+int s = 5;
+int step;
+int substep;
+int cmode; 
+//cursor mode, 0:horizontal 1:vertical
+
+void setup()
+{
+	size(900, 600);
+	title();
+	step = 0;
+	substep = 0;
+}
+
+void draw()
+{
+	//if(keyPressed){
+	//  if(key == 's'){
+	//    check_height();
+}
+
+void init(int w, int h)
+{
+	fill(0);
+	noStroke();
+	rect(0, 0, w, h);
+}
+
+void title()
+{
+	init(window_w, window_h);
+	font(window_w/s, 15, 140, 240);
+	text("closize", window_w*1/8, window_h/2);
+	font(window_w/(s*5), 15, 140, 240);
+	text("click and start", window_w*2/7, window_h*7/10);
+}
+
+void font(int f, int r, int g, int b)
+{
+	PFont moji = createFont("Calisto MT Bold Italic", f);
+	textFont(moji);
+	fill(r, g, b);
+}
+
+void imgshow()
+{
+	init(window_w, window_h);
+	PImage img = loadImage("ren.jpg");
+	image(img, 0, 0, img_w/s, img_h/s);
+}
+
+void sousashow()  //appropriate name please!!
+{
+	fill(255);
+	rect(0, img_h/s, img_w/s, window_h-img_h/s);
+	font(window_w/(s*10), 240, 140, 15);
+	text("キャンセル：右クリック", 25, img_h/s+100);
+}
+
+void check_height()
+{
+	imgshow();
+	sousashow();
+	font(window_w/(s*10), 15, 140, 240);
+	text("click top of head", 25, img_h/s+50);
+}
+
+void mouseClicked()
+{
+	switch(step) {
+		case 0:
+			height_step();
+			break;
+		case 1: 
+			shoulder_step();
+			break;
+	}
+}
+
+void height_step()
+{
+	switch(substep) {
+		case 0: 
+			if (mouseButton == LEFT) {
+				imgshow();
+				sousashow();
+				font(window_w/(s*10), 15, 140, 240);
+				text("頭の先をクリック", 25, img_h/s+50);
+				substep = 1;
+				break;
+			}
+		case 1:
+			if (mouseButton == LEFT) {
+				sousashow();
+				font(window_w/(s*10), 15, 140, 240);
+				text("足の先をクリック", 25, img_h/s+50);
+				cursor();
+				step = 1;
+				substep = 0;
+				break;
+			}
+	}
+}
+
+void shoulder_step()
+{
+	switch(substep) {
+		case 0:
+			if (mouseButton == LEFT) {
+				sousashow();
+				font(window_w/(s*10), 15, 140, 240);
+				text("左肩をクリック", 25, img_h/s+50);
+				cursor();
+				cmode=1;
+				substep = 1;
+				break;
+			}
+		case 1:
+			if (mouseButton == LEFT) {
+				sousashow();
+				font(window_w/(s*10), 15, 140, 240);
+				text("右肩をクリック", 25, img_h/s+50);
+				cursor();
+				break;
+			}
+	}
+}
+
+void cursor()
+{
+	if (mouseButton == LEFT) {
+		fill(0, 0, 0);
+		noStroke();
+		smooth();
+		if (cmode == 0) {
+			rect(mouseX, mouseY, 20, 4);
+			rect(mouseX, mouseY, -20, 4);
+		}
+		if (cmode == 1) {
+			rect(mouseX, mouseY, 4, 20);
+			rect(mouseX, mouseY, 4, -20);
+		}
+	}
+}
