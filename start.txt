@@ -1,0 +1,112 @@
+PImage imgMen, imgWomen,imgOk,imgCancel;
+
+int imgMen_w = 672;
+int imgMen_h = 403;
+int s = 7;
+int imgWomen_w = imgMen_w/s;
+int imgWomen_h = imgMen_h/s;
+
+int imgOk_w = 78;
+int imgOk_h = 21;
+int t =1;
+int imgCancel_w = imgOk_w/t;
+int imgCancel_h = imgOk_h/t;
+
+int stat=0;
+//stat=0、case0 男女選択画面
+//stat=1、case1 男性の身長入力画面
+//stat=2、case2 女性の身長入力画面
+//stat=3、case3 男性服選択の画面
+//stat=4、case4 女性服選択の画面
+
+void setup(){
+size(300,200);
+}
+
+void draw(){
+background(0);
+switch(stat){
+  case 0:
+text("性別を選択してください",90,10,100,20);
+imgMen=loadImage("men.jpg");
+imgWomen=loadImage("women.jpg");
+image(imgMen,30,30,imgMen_w/s,imgMen_h/s);
+image(imgWomen,180,30,imgWomen_w,imgWomen_h);
+break;
+
+case 1:
+text("身長を入力してください",85,10,120,20);
+imgMen=loadImage("men.jpg");
+imgOk=loadImage("ok.jpg");
+imgCancel=loadImage("cancel.jpg");
+image(imgMen,100,30,imgMen_w/s,imgMen_h/s);
+image(imgOk,50,150,imgOk_w/t,imgOk_h/t);
+image(imgCancel,170,150,imgCancel_w,imgCancel_h);
+break;
+
+case 2:
+text("身長を入力してください",85,10,120,20);
+imgWomen=loadImage("women.jpg");
+imgOk=loadImage("ok.jpg");
+imgCancel=loadImage("cancel.jpg");
+image(imgWomen,100,30,imgWomen_w,imgWomen_h);
+image(imgOk,50,150,imgOk_w/t,imgOk_h/t);
+image(imgCancel,170,150,imgCancel_w,imgCancel_h);
+break;
+
+case 3:
+text("服を選択してください",85,10,120,20);
+
+case 4:
+text("服を選択してください",85,10,120,20);
+}
+}
+
+void mousePressed(){
+  switch(stat){
+    case 0:
+if(mouseX>=30 && mouseX<=30+imgMen_w/s && mouseY>=30 && mouseY<=30+imgMen_h/s)//男性選択
+{
+  stat=1;//男性身長選択画面
+  //changeWindowSize(500,200);
+}else if(mouseX>=180 && mouseX<=210+imgWomen_w && mouseY>=30 && mouseY<=30+imgWomen_h)//女性選択
+{
+  stat=2;//女性身長選択画面
+ // changeWindowSize(500,200);
+}
+break;
+
+case 1:
+if(mouseX>=50 && mouseX<= 50+imgOk_w && mouseY>=150 && mouseY<=150+imgOk_h)//okボタンの時
+{
+  stat=3;
+}else if(mouseX>=170 && mouseX<=170+imgCancel_w && mouseY>=150 && mouseY<=150+imgCancel_h)//cancelボタンの時
+{
+  stat=0;
+}
+//changeWindowSize(300,100);
+break;
+
+case 2:
+if(mouseX>=50 && mouseX<= 50+imgOk_w && mouseY>=150 && mouseY<=150+imgOk_h)//okボタンの時
+{
+  stat=4;
+}else if(mouseX>=170 && mouseX<=170+imgCancel_w && mouseY>=150 && mouseY<=150+imgCancel_h)//cancelボタンの時
+{
+  stat=0;
+}
+//changeWindowSize(300,100);
+break;
+
+case 3:
+stat=0;
+
+case 4:
+stat=0;
+}
+  }
+
+//void changeWindowSize(int w, int h) {
+// surface.setSize( w + frame.getInsets().left + frame.getInsets().right, h + frame.getInsets().top + frame.getInsets().bottom );
+// size(w, h);
+//}
