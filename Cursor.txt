@@ -3,6 +3,7 @@
 //肩幅を計測できた
 //右クリックで初期化
 //入力システム統合
+//ウエスト（仮）身長，肩幅，ウエスト前からと横からの順に
 mport java.awt.*;
 import javax.swing.*;
 
@@ -58,7 +59,7 @@ void draw() {
   smooth();
 
   if (mouseButton == LEFT) {
-    if (count%2==1) {              //タッチした時にcountが1
+    if (count==0) {              //タッチした時にcountが1
       //     text("身長は"+height+"cm", 25, img1_h/s+50);
       rect(x, y, 4, mouseY-y);
       pixel = height / ((double)mouseY - (double)y);
@@ -70,18 +71,16 @@ void draw() {
 }
 
 void mousePressed() {
-  if (count%2==0) {
+  if (count==0) {
     rect(mouseX, mouseY, 20, 4);
     rect(mouseX, mouseY, -20, 4);
     x = mouseX;
     y = mouseY;
-    count++;
   } else {
     rect(mouseX, mouseY, 4, 20);
     rect(mouseX, mouseY, 4, -20);
     x = mouseX;
     y = mouseY;
-    count++;
   }
 }
 
@@ -90,15 +89,27 @@ void mouseReleased() {
     count = 0;                                      //countと画面を初期化
     background(204);
     setup();
-  } else if (count%2==1) {                  //タッチした時にcountが1
+  } else if (count==0) {
     rect(x, mouseY, 20, 4);
     rect(x, mouseY, -20, 4);
-  } else {
+    count++;
+  } else if (count==1) {
     rect(mouseX, y, 4, 20);
     rect(mouseX, y, 4, -20);
     String after = String.format("%.2f", lengh);    //小数点第2まで表示
     text("肩幅は"+after+"±1.00"+"cm", 25, img_h/s+50);
+    count++;
+  } else if (count==2) {
+    rect(mouseX, y, 4, 20);
+    rect(mouseX, y, 4, -20);
+    waist = lengh * 1.5;
+    count++;    
+  } else if (count==3) {
+    rect(mouseX, y, 4, 20);
+    rect(mouseX, y, 4, -20);
+    waist = waist + lengh*1.5;
+    String after = String.format("%.2f", waist);    //小数点第2まで表示
+    text("ウエストは"+after+"±1.00"+"cm", 200, img_h/s+50);
+    count++;
   }
 }
-
-
