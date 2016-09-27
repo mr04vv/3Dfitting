@@ -3,18 +3,22 @@
 //肩幅を計測できた
 //右クリックで初期化
 //入力システム統合
-//ウエスト（仮）身長，肩幅，ウエスト前からと横からの順に
-mport java.awt.*;
+//ウエスト（仮）身長，肩幅，チェスト前からと横から，ウエスト前からと横からの順に
+//少し掃除した
+import java.awt.*;
 import javax.swing.*;
 
 int img_h = 3264;
 int img_w = 2448;
 int s = 7;
-int x=0, y=0;    //座標保持
+int x=0, y=0;             //座標保持
 int count=0;
-double height;  //身長
-double lengh=0;    //肩幅
-double pixel=0;  //1画素あたりのサイズ
+double height;          //身長
+double lengh=0;      //長さ
+double shoulder=0;//肩幅
+double chest=0;     //チェスト
+double waist=0;      //ウエスト
+double pixel=0;      //1画素あたりのサイズ
 
 
 void setup() {
@@ -34,7 +38,7 @@ void setup() {
   panel.add(new JLabel("身長を入力してください"));
   JTextField text1 = new JTextField();
   panel.add(text1);
-panel.add(new JLabel("(cm)"));
+  panel.add(new JLabel("(cm)"));
 
   int r = JOptionPane.showConfirmDialog(
     null, // オーナーウィンドウ
@@ -76,6 +80,7 @@ void mousePressed() {
     rect(mouseX, mouseY, -20, 4);
     x = mouseX;
     y = mouseY;
+    
   } else {
     rect(mouseX, mouseY, 4, 20);
     rect(mouseX, mouseY, 4, -20);
@@ -89,27 +94,48 @@ void mouseReleased() {
     count = 0;                                      //countと画面を初期化
     background(204);
     setup();
-  } else if (count==0) {
+    
+  } else if (count==0) {                  //タッチした時にcountが1
     rect(x, mouseY, 20, 4);
     rect(x, mouseY, -20, 4);
     count++;
+    
   } else if (count==1) {
-    rect(mouseX, y, 4, 20);
-    rect(mouseX, y, 4, -20);
-    String after = String.format("%.2f", lengh);    //小数点第2まで表示
-    text("肩幅は"+after+"±1.00"+"cm", 25, img_h/s+50);
+    tateline();
+    shoulder = lengh;
+    showvalue(shoulder, "肩幅", 25);
     count++;
-  } else if (count==2) {
-    rect(mouseX, y, 4, 20);
-    rect(mouseX, y, 4, -20);
+    
+  } else if (count==2) {               //チェスト1
+    tateline();
+    chest = lengh*1.5;
+    count++;
+    
+  } else if (count==3) {                   //チェスト2
+    tateline();
+    chest += lengh*1.5;
+    showvalue(chest, "チェスト", 300);
+    count++;
+    
+  } else if (count==4) {                  //ウエスト1
+    tateline();
     waist = lengh * 1.5;
-    count++;    
-  } else if (count==3) {
-    rect(mouseX, y, 4, 20);
-    rect(mouseX, y, 4, -20);
-    waist = waist + lengh*1.5;
-    String after = String.format("%.2f", waist);    //小数点第2まで表示
-    text("ウエストは"+after+"±1.00"+"cm", 200, img_h/s+50);
+    count++;
+    
+  } else if (count==5) {                  //ウエスト2
+    tateline();
+    waist += lengh*1.5;
+    showvalue(waist, "ウエスト", 575);
     count++;
   }
+}
+
+void tateline() {
+  rect(mouseX, y, 4, 20);
+  rect(mouseX, y, 4, -20);
+}
+
+void showvalue(double x, String a, int distance) {
+  String after = String.format("%.2f", x);    //小数点第2まで表示
+  text(a+after+"±1.00"+"cm", distance, img_h/s+50);
 }
