@@ -1,10 +1,14 @@
-//身長と肩幅を順に測れるようにした
-//1画素あたりのサイズ獲得できた
-//肩幅を計測できた
-//右クリックで初期化
-//入力システム統合
-//ウエスト（仮）身長，肩幅，チェスト前からと横から，ウエスト前からと横からの順に
-//少し掃除した
+/*
+・身長と肩幅を順に測れるようにした
+・1画素あたりのサイズ獲得できた
+・肩幅を計測できた
+・右クリックで初期化
+・入力システム統合
+・ウエスト（仮）身長，肩幅，チェスト前からと横から，ウエスト前からと横からの順に
+・少し掃除した
+・線引くとき，行き過ぎても大丈夫→前に計測した部分は消えるけど，もう必要ないしいいよね？
+*/
+
 import java.awt.*;
 import javax.swing.*;
 
@@ -19,14 +23,15 @@ double shoulder=0;//肩幅
 double chest=0;     //チェスト
 double waist=0;      //ウエスト
 double pixel=0;      //1画素あたりのサイズ
-
+PImage img1;
+PImage img2;
 
 void setup() {
 
   size(1000, 600);
 
-  PImage img1 = loadImage("yuki_side.JPG");
-  PImage img2 = loadImage("yuki_front.JPG");
+  img1 = loadImage("yuki_side.JPG");
+  img2 = loadImage("yuki_front.JPG");
 
   image(img1, 0, 0, img_w/s, img_h/s);
   image(img2, 2448/s, 0, img_w/s, img_h/s);
@@ -57,7 +62,7 @@ void setup() {
 }
 
 void draw() {
-
+/*
   fill(0, 0, 0);
   noStroke();
   smooth();
@@ -71,16 +76,20 @@ void draw() {
       rect(x, y, mouseX-x, 4);
       lengh = (double)(mouseX-x) * pixel;
     }
-  }
+  }*/
 }
 
 void mousePressed() {
+  
+  fill(0, 0, 0);
+  noStroke();
+  smooth();
+  
   if (count==0) {
     rect(mouseX, mouseY, 20, 4);
     rect(mouseX, mouseY, -20, 4);
     x = mouseX;
     y = mouseY;
-    
   } else {
     rect(mouseX, mouseY, 4, 20);
     rect(mouseX, mouseY, 4, -20);
@@ -89,39 +98,53 @@ void mousePressed() {
   }
 }
 
+void mouseDragged() {
+  if (count==0) {              //タッチした時にcountが1
+    //     text("身長は"+height+"cm", 25, img1_h/s+50);
+    image(img1, 0, 0, img_w/s, img_h/s);
+    image(img2, 2448/s, 0, img_w/s, img_h/s);
+    rect(x, y, 20, 4);                                                            //クリック時の固定線
+    rect(x, y, -20, 4);
+    rect(x, y, 4, mouseY-y);                                              //動く線
+    pixel = height / ((double)mouseY - (double)y);
+    
+  } else {
+    image(img1, 0, 0, img_w/s, img_h/s);
+    image(img2, 2448/s, 0, img_w/s, img_h/s);
+    rect(x, y, 4, 20);                                                            //クリック時の固定線
+    rect(x, y, 4, -20);
+    rect(x, y, mouseX-x, 4);                                              //動く線
+    lengh = (double)(mouseX-x) * pixel;
+  }
+}
+
 void mouseReleased() {
   if (mouseButton == RIGHT) {      //カーソルキャンセル
     count = 0;                                      //countと画面を初期化
     background(204);
     setup();
-    
   } else if (count==0) {                  //タッチした時にcountが1
     rect(x, mouseY, 20, 4);
     rect(x, mouseY, -20, 4);
     count++;
-    
   } else if (count==1) {
     tateline();
     shoulder = lengh;
     showvalue(shoulder, "肩幅", 25);
     count++;
-    
   } else if (count==2) {               //チェスト1
     tateline();
     chest = lengh*1.5;
     count++;
-    
   } else if (count==3) {                   //チェスト2
     tateline();
     chest += lengh*1.5;
     showvalue(chest, "チェスト", 300);
     count++;
-    
   } else if (count==4) {                  //ウエスト1
     tateline();
     waist = lengh * 1.5;
     count++;
-    
   } else if (count==5) {                  //ウエスト2
     tateline();
     waist += lengh*1.5;
@@ -139,3 +162,4 @@ void showvalue(double x, String a, int distance) {
   String after = String.format("%.2f", x);    //小数点第2まで表示
   text(a+after+"±1.00"+"cm", distance, img_h/s+50);
 }
+
