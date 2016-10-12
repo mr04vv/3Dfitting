@@ -9,11 +9,3 @@ if (btnNo == 1){
 }
 
     
-function selectheight(){
-  var a = 1;
-    alert(a);
-}
-
-function selectclothes(){
-    
-}
