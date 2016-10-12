@@ -22,6 +22,7 @@ void draw() {
 int r, g, b;
 int base, compare, eval;
 int i;
+int cursor_section=1;
 
 void mousePressed() {
 
@@ -29,35 +30,59 @@ void mousePressed() {
   noStroke();
   smooth();
 
-  x = mouseX;
-  y = mouseY;
-  println("x:"+x+",y:"+y);
-  r=int(red(img1.get(s*x, s*y)));
-  g=int(green(img1.get(s*x, s*y)));
-  b=int(blue(img1.get(s*x, s*y)));
-  base=int(0.33*r+0.59*g+0.11*b);
+  switch(cursor_section) {
+  case 1:
+    x = mouseX;
+    y = mouseY;
+    println("x:"+x+",y:"+y);
+
+    auto_cursor(x, y);
+
+    println("end first section:"+eval);
+    cursor_section=2;
+    break;
+
+  case 2:
+    y = mouseY;
+    println("x:"+x+",y:"+y);
+
+    auto_cursor(x, y);
+    println("end second section:"+eval);
+    cursor_section=1;
+    break;
+  }
+}
+
+void auto_cursor(int x, int y) {
+  base=gray_scale(x, y);
   println("base:"+base);
 
   for (i=1;; i++) {
-    if(i%2==1)
-    y+=i;
+    if (i%2==1)
+      y+=i;
     else
-    y-=i;
+      y-=i;
     println("y:"+y);
     println("x:"+x+",y:"+y);
-    r=int(red(img1.get(s*x, s*y)));
-    g=int(green(img1.get(s*x, s*y)));
-    b=int(blue(img1.get(s*x, s*y)));
-    compare=int(0.33*r+0.59*g+0.11*b);
+
+    compare=gray_scale(x, y);
     println("compare:"+compare);
+
     eval=base-compare;
     if (eval<0)
       eval=-1*eval;
+
     if (eval>20) {
-      rect(x, y, 20, 1);
-      rect(x, y, -20, 1);
+      rect(x, y, 40, 1);
+      rect(x, y, -40, 1);
       break;
     }
   }
-  println("end:"+eval);
+}
+
+int gray_scale(int x, int y ) {
+  r=int(red(img1.get(s*x, s*y)));
+  g=int(green(img1.get(s*x, s*y)));
+  b=int(blue(img1.get(s*x, s*y)));
+  return int(0.33*r+0.59*g+0.11*b);
 }
