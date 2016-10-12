@@ -26,17 +26,17 @@
         
         <h4>身長入力: <input type="number" name="height">cm</h4>
         
-        <h5>正面の画像:<input type="file" name="file1" size="20" accept="image/*"></h5><!--画像選択/-->
-        
-        <h6>横の画像:<input type="file" name="file2" size="20" accept="image/*"></h6><!--画像選択/-->
-        
-        <a id="modalOpen" class="button" style="width:150px; height:35px;"><span>内容確認！</span></a>
-        
-        <div id="modal-content">
-        <p>あいうえお</p>
-            <p><a id="modal-close" class="button-link">閉じる</a></p>
+        <div id="imageFront">
+            <h5>正面の画像:<input type="file" name="file1" size="20" accept="image/*"></h5><!--画像選択/-->
         </div>
         
+        <div id="imageSide">
+            <h6>横の画像:<input type="file" name="file2" size="20" accept="image/*"></h6><!--画像選択/-->
+        </div>
+        
+        <a class="button"  onclick="jump()" href="#" style="width:150px; height:35px;"><span>内容確認！</span></a>
+        
+       
     </body>
 
     </html>
