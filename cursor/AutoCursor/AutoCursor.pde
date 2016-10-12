@@ -23,6 +23,7 @@ int r, g, b;
 int base, compare, eval;
 int i;
 int cursor_section=1;
+int cursor_mode=1;   //0:holizontal, 1:vartical
 
 void mousePressed() {
 
@@ -43,7 +44,10 @@ void mousePressed() {
     break;
 
   case 2:
-    y = mouseY;
+    if (cursor_mode==0)
+      y = mouseY;
+    else
+      x=mouseX;
     println("x:"+x+",y:"+y);
 
     auto_cursor(x, y);
@@ -58,10 +62,21 @@ void auto_cursor(int x, int y) {
   println("base:"+base);
 
   for (i=1;; i++) {
-    if (i%2==1)
-      y+=i;
-    else
-      y-=i;
+    switch(cursor_mode) {
+    case 0:
+      if (i%2==1)
+        y+=i;
+      else
+        y-=i;
+      break;
+
+    case 1:
+      if (i%2==1)
+        x+=i;
+      else
+        x-=i;
+      break;
+    }
     println("y:"+y);
     println("x:"+x+",y:"+y);
 
@@ -73,8 +88,17 @@ void auto_cursor(int x, int y) {
       eval=-1*eval;
 
     if (eval>20) {
-      rect(x, y, 40, 1);
-      rect(x, y, -40, 1);
+      switch(cursor_mode) {
+      case 0:
+        rect(x, y, 40, 1);
+        rect(x, y, -40, 1);
+        break;
+
+      case 1:
+        rect(x, y, 1, 40);
+        rect(x, y, 1, -40);
+        break;
+      }
       break;
     }
   }
