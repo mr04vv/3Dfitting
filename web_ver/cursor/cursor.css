@@ -1,0 +1,11 @@
+@charset"UTF-8";
+
+
+h1{
+    position: absolute;
+    left:45%; 
+    top:40%; 
+    font: italic 10em/0em "Times New Roman", serif;
+    color:aqua;
+    margin: -150px 0px 0px -200px;
+}/*Closize*/

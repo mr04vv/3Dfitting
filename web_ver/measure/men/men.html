@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Measure</title>
+<link rel="stylesheet"
+          href="men.css">
+ <script type="text/javascript" src="men.js"></script>
+    </head>
+    
+    <body bgcolor="#faf0e6">
+    
+        <h1>Closize</h1>
+        
+        <h2>身長を入力し</h2>
+        <h3>画像を読み込んでください</h3>
+        <div id="men">
+            <img src="men.jpg" width = 300px; height = 400px;>
+        </div>
+        <!--<div id="text1">男性</div>//-->
+        
+        <div id="women">
+            <img src="women.jpg" width = 300px; height = 400px;>
+        </div>
+        <!--<div id="text2">女性</div>//-->
+        
+        <h4>身長入力: <input type="number" name="height">cm</h4>
+        
+        <div id="imageFront">
+            <h5>正面の画像:<input type="file" name="file1" size="20" accept="image/*"></h5><!--画像選択/-->
+        </div>
+        
+        <div id="imageSide">
+            <h6>横の画像:<input type="file" name="file2" size="20" accept="image/*"></h6><!--画像選択/-->
+        </div>
+        
+        <a class="button"  onclick="jump()" href="#" style="width:150px; height:35px;"><span>内容確認！</span></a>
+        
+       
+    </body>
+
+    </html>

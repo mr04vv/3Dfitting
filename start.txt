@@ -1,4 +1,5 @@
-PImage imgMen, imgWomen,imgOk,imgCancel;
+PImage imgMen, imgWomen, imgOk, imgCancel
+,imgMtop,imgMbottom,imgWtop,imgWbottom;
 
 int imgMen_w = 672;
 int imgMen_h = 403;

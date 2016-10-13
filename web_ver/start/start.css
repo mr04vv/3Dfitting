@@ -1,0 +1,41 @@
+@charset"UTF-8";
+
+p{
+    width: 100%; 
+    min-width: 400px; 
+    max-width: 600px;
+}
+
+h1{
+    position: absolute;
+    left:45%; 
+    top:40%; 
+    font: italic 10em/0em "Times New Roman", serif;
+    color:aqua;
+    margin: -150px 0px 0px -200px;
+}/*Closize*/
+
+h2{
+    position: absolute;
+    left:40%; 
+    top:55%; 
+    font: italic 1.8em/0em "Times New Roman", serif;
+    color: blue;
+    margin: -150px 0px 0px -200px;
+}/*サイズ感を試着できるwebアプリケーション*/
+
+.button {
+    text-align: center;/*文字の位置*/
+   font: italic 4em "Times New Roman", serif;
+	position:absolute;
+    top: 280px;
+    left: 310px;
+	background-color:#faf0e6;/*背景の色*/
+	border-radius: 5px; /*ボタンの丸み*/
+	color:darkgray; /*文字の色*/
+    animation: appear 8s;
+}
+.button:hover {
+	background-color:#faf0e6;
+    color: grey;
+}

@@ -14,7 +14,7 @@ h2{
     position: absolute;
     top: 80px;
     left: 240px;
-    font: italic 1.8em/0em "Tines New Roman", serif;
+    font: italic 1.8em/0em "Times New Roman", serif;
     z-index: 3;
 }
 
@@ -31,3 +31,8 @@ h2{
     left: 390px;
     z-index: 2;
 }
+
+a:hover img{
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+}/*ホバーした時に透過*/
