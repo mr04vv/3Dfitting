@@ -72,12 +72,6 @@ void auto_cursor(int x, int y) {
   println("base:"+base);
 
   for (i=1;; i++) {
-<<<<<<< HEAD
-    if (i%2==1)
-      y+=i;
-    else
-      y-=i;
-=======
     switch(cursor_mode) {
     case 0:
       if (i%2==1)
@@ -93,8 +87,6 @@ void auto_cursor(int x, int y) {
         x-=i;
       break;
     }
-    println("y:"+y);
->>>>>>> fd80e0170278b572c21cd98ce75aa41d53413ee7
     println("x:"+x+",y:"+y);
 
     compare=gray_scale(x, y);
