@@ -62,7 +62,6 @@ void auto_cursor(int x, int y) {
       y+=i;
     else
       y-=i;
-    println("y:"+y);
     println("x:"+x+",y:"+y);
 
     compare=gray_scale(x, y);
