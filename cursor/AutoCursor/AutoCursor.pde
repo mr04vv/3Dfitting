@@ -1,3 +1,23 @@
+/*
+仕様
+   クリックした画素に対して縦or横方向に探索をかけてエッジ（色の変化の大きいところ）にカーソルが出る.
+   2個目のカーソルはその方向の座標を保存して表示.
+   デバック用にコンソールにメッセージを表示.メッセージの内容は以下の通り.
+     x,y:探索した画素の座標
+     base:最初にクリックした画素のグレースケール値.
+     compare:探索した画素のグレースケール値.
+     eval:評価値
+     first section,second section:カーソルの回数.first:一回目,second:二回目.
+     cursor mode cganged:カーソルモードの変更.直後に変更内容.
+ */
+ 
+ /*
+ 詳細?
+      クリックした画素を基準値(base)として探索をかけた画素を比較値(conpare)とする.基準値と比較値に差を評価値(eval)として,
+      これが閾値(現在20に設定)より大きければカーソルを表示.
+ */
+
+
 int img_h = 3264;
 int img_w = 2448;
 int s = 7;
@@ -9,14 +29,15 @@ int base, compare, eval;
 int i;
 int cursor_section=1;
 int cursor_mode=0;   //0:holizontal, 1:vartical
-int img_mode =1;     //1;img1, 2:img2
+int img_mode=1;     //1;img1, 2:img2
+int Xoffset, Yoffset;
 
 void setup() {
 
   size(1000, 600);
 
-  img1 = loadImage("yuki_side.JPG");
-  img2 = loadImage("yuki_front.JPG");
+  img1 = loadImage("yuki_side.jpg");
+  img2 = loadImage("yuki_front.jpg");
 
   image(img1, 0, 0, img_w/s, img_h/s);
   image(img2, 2448/s, 0, img_w/s, img_h/s);
@@ -27,11 +48,29 @@ void draw() {
 }
 
 
-void keyPressed(){
-  if(key=='a')  {  set(0,1);  println("cursor:horizontal, img:1");  }
-  if(key=='s')  {  set(1,1);  println("cursor:vartical, img:1");}
-  if(key=='z')  {  set(0,2);  println("cursor:horizontal, img:2");}
-  if(key=='x')  {  set(1,2);  println("cursor:vartical, img:2");}
+void keyPressed() {
+  if (key!='q') {
+    println("cursor mode changed");
+    if (key=='a') {  
+      set(0, 1);  
+      println("cursor:horizontal, img:side");
+    }
+    if (key=='s') {  
+      set(1, 1);  
+      println("cursor:vartical, img:side");
+    }
+    if (key=='z') {  
+      set(0, 2);  
+      println("cursor:horizontal, img:front");
+    }
+    if (key=='x') {  
+      set(1, 2);  
+      println("cursor:vartical, img:front");
+    }
+  } else {
+    setup();
+    println("reset cursor");
+  }
 }
 
 
@@ -49,7 +88,7 @@ void mousePressed() {
 
     auto_cursor(x, y);
 
-    println("end first section:"+eval);
+    println("end first section:"+" eval:"+eval);
     cursor_section=2;
     break;
 
@@ -61,7 +100,7 @@ void mousePressed() {
     println("x:"+x+",y:"+y);
 
     auto_cursor(x, y);
-    println("end second section:"+eval);
+    println("end second section:"+" eval:"+eval);
     cursor_section=1;
     break;
   }
@@ -114,14 +153,22 @@ void auto_cursor(int x, int y) {
 }
 
 int gray_scale(int x, int y ) {
-  r=int(red(img1.get(s*x, s*y)));
-  g=int(green(img1.get(s*x, s*y)));
-  b=int(blue(img1.get(s*x, s*y)));
+  if (img_mode==1) {
+    r=int(red(img1.get(s*(x-Xoffset), s*(y-Yoffset))));
+    g=int(green(img1.get(s*(x-Xoffset), s*(y-Yoffset))));
+    b=int(blue(img1.get(s*(x-Xoffset), s*(y-Yoffset))));
+  } else {
+    r=int(red(img2.get(s*(x-Xoffset), s*(y-Yoffset))));
+    g=int(green(img2.get(s*(x-Xoffset), s*(y-Yoffset))));
+    b=int(blue(img2.get(s*(x-Xoffset), s*(y-Yoffset))));
+  }
   return int(0.33*r+0.59*g+0.11*b);
 }
 
 
-void set(int cursor_flag, int img_flag){
-cursor_mode=cursor_flag;
-img_mode=img_flag;
+void set(int cursor_flag, int img_flag) {
+  cursor_mode=cursor_flag;
+  img_mode=img_flag;
+  if (img_mode==2)
+    Xoffset=img_w/s;
 }
