@@ -69,6 +69,7 @@ void keyPressed() {
     }
   } else {
     setup();
+    cursor_section=1;
     println("reset cursor");
   }
 }
