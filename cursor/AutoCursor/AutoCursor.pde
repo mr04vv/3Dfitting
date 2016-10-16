@@ -1,20 +1,20 @@
 /*
 仕様
-   クリックした画素に対して縦or横方向に探索をかけてエッジ（色の変化の大きいところ）にカーソルが出る.
-   2個目のカーソルはその方向の座標を保存して表示.
-   デバック用にコンソールにメッセージを表示.メッセージの内容は以下の通り.
-     x,y:探索した画素の座標
-     base:最初にクリックした画素のグレースケール値.
-     compare:探索した画素のグレースケール値.
-     eval:評価値
-     first section,second section:カーソルの回数.first:一回目,second:二回目.
-     cursor mode cganged:カーソルモードの変更.直後に変更内容.
+ クリックした画素に対して縦or横方向に探索をかけてエッジ（色の変化の大きいところ）にカーソルが出る.
+ 2個目のカーソルはその方向の座標を保存して表示.
+ デバック用にコンソールにメッセージを表示.メッセージの内容は以下の通り.
+ x,y:探索した画素の座標
+ base:最初にクリックした画素のグレースケール値.
+ compare:探索した画素のグレースケール値.
+ eval:評価値
+ first section,second section:カーソルの回数.first:一回目,second:二回目.
+ cursor mode cganged:カーソルモードの変更.直後に変更内容.
  */
- 
- /*
+
+/*
  詳細?
-      クリックした画素を基準値(base)として探索をかけた画素を比較値(conpare)とする.基準値と比較値に差を評価値(eval)として,
-      これが閾値(現在20に設定)より大きければカーソルを表示.
+ クリックした画素を基準値(base)として探索をかけた画素を比較値(conpare)とする.基準値と比較値に差を評価値(eval)として,
+ これが閾値(現在20に設定)より大きければカーソルを表示.
  */
 
 
@@ -22,6 +22,7 @@ int img_h = 3264;
 int img_w = 2448;
 int s = 7;
 int x=0, y=0; 
+int prex, prey;
 PImage img1;
 PImage img2;
 int r, g, b;
@@ -31,16 +32,27 @@ int cursor_section=1;
 int cursor_mode=0;   //0:holizontal, 1:vartical
 int img_mode=1;     //1;img1, 2:img2
 int Xoffset, Yoffset;
+float ans;
+float height=169;
+float pixel;
+float l;  //length
+int measure_mode=0;
+float shoulder;
+int mode;  //全体の流れ管理用
+
 
 void setup() {
 
   size(1000, 600);
 
-  img1 = loadImage("old_yuki_side.jpg");
-  img2 = loadImage("old_yuki_front.jpg");
+  img1 = loadImage("yuki_side.jpg");
+  img2 = loadImage("yuki_front.jpg");
 
   image(img1, 0, 0, img_w/s, img_h/s);
   image(img2, 2448/s, 0, img_w/s, img_h/s);
+  
+  pixel=0;
+  println(img_h/s +"  " + img_w/s);
 }
 
 
@@ -83,11 +95,14 @@ void mousePressed() {
 
   switch(cursor_section) {
   case 1:
+    mode_select();
     x = mouseX;
     y = mouseY;
     println("x:"+x+",y:"+y);
 
-    auto_cursor(x, y);
+    auto_cursor();
+    prex=x;
+    prey=y;
 
     println("end first section:"+" eval:"+eval);
     cursor_section=2;
@@ -97,17 +112,19 @@ void mousePressed() {
     if (cursor_mode==0)
       y = mouseY;
     else
-      x=mouseX;
+      x = mouseX;
     println("x:"+x+",y:"+y);
 
-    auto_cursor(x, y);
+    auto_cursor();
     println("end second section:"+" eval:"+eval);
     cursor_section=1;
+    
+    measure();
     break;
   }
 }
 
-void auto_cursor(int x, int y) {
+void auto_cursor(){
   base=gray_scale(x, y);
   println("base:"+base);
 
@@ -172,4 +189,54 @@ void set(int cursor_flag, int img_flag) {
   img_mode=img_flag;
   if (img_mode==2)
     Xoffset=img_w/s;
+}
+
+
+void measure(){
+  switch(measure_mode){
+    case 0:  //calculat pixel
+    calculation();
+    measure_mode++;
+    break;
+    
+    case 1:  //calculat shoulder
+    shoulder=calculation();
+    println("syoulder:"+shoulder);
+   // measure_mode++;
+    break;
+  }
+}
+
+float calculation() {
+  if (cursor_mode==0) {
+    l=prey-y;
+    println("prey:"+prey+" y:"+y);
+    if (l<0)
+      l=-1*l;
+    if (pixel==0){
+      pixel=height/l;
+      println("pixel:"+pixel);
+    }else
+      ans=l*pixel;
+  } else {
+    l=prex-x;
+    println("prex:"+prex+" x:"+x);
+    if (l<0)
+      l=-1*l;
+    ans=l*pixel;
+  }
+  return ans;
+}
+
+void mode_select(){
+ switch(mode){
+  case 0:  //height
+  set(0,1);
+  mode++;
+  break;
+  
+  case 1:  //shoulder
+  set(1,2);
+  break;
+ }
 }
