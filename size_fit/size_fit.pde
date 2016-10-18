@@ -70,17 +70,20 @@ void keyPressed() {      //とりあえず判定結果を0~4で識別
  }else if (key=='4') {
     result = 4;
  }
-  switch (mode) {
-     case 0:  size_impression(shoulder, result);
-                     break;
+ 
+ if (key=='0' || key=='1' || key=='2' || key=='3' || key=='4') {
+    switch (mode) {
+       case 0:  size_impression(shoulder, result);
+                       break;
                       
-     case 1:  size_impression(west, result);
-                     break; 
-      
-     case 2:  size_impression(chest, result);
-                     break;                 
-   }
+       case 1:  size_impression(west, result);
+                       break; 
+                       
+       case 2:  size_impression(chest, result);
+                       break;                 
+     }
    mode++;
+ }
  
 }
 
