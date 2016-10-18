@@ -1,19 +1,241 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>Measure</title>
 <link rel="stylesheet"
           href="cursor.css">
- <script type="text/javascript" src="cursor.js"></script>
     </head>
+    <body>
+   <canvas id="mycanvas"></canvas><br />
+ 
+    <script src="processing-1.4.1.min.js" type="text/javascript"></script>
+    <script type="application/processing" data-processing-target="mycanvas"> 
     
-    <body bgcolor="#faf0e6">
-    
-        <h1>Closize</h1>
-  
-        
-        
-    </body>
+/*@pjs
+  preload="yuki_front.jpg, yuki_side.jpg";
+*/    
+int img_h = 3264;
+int img_w = 2448;
+int s = 10;
+int x=0, y=0; 
+int prex, prey;
+PImage img1;
+PImage img2;
+int r, g, b;
+int base, compare, eval;
+int i;
+int cursor_section=1;
+int cursor_mode=0;   //0:holizontal, 1:vartical
+int img_mode=1;     //1;img1, 2:img2
+int Xoffset, Yoffset;
+float ans;
+float pixel;
+float l;  //length
+int measure_mode=0;
+float shoulder;
+int mode;  //全体の流れ管理用
 
-    </html>
+
+void setup() {
+
+  size(600, 400);
+
+  img1 = loadImage("yuki_side.jpg");
+  img2 = loadImage("yuki_front.jpg");
+
+  image(img1, 0, 0, img_w/s, img_h/s);
+  image(img2, 2448/s, 0, img_w/s, img_h/s);
+  
+  pixel=0;
+  println(img_h/s +"  " + img_w/s);
+}
+
+
+void draw() {
+}
+
+
+void keyPressed() {
+  if (key!='q') {
+    println("cursor mode changed");
+    if (key=='a') {  
+      set(0, 1);  
+      println("cursor:horizontal, img:side");
+    }
+    if (key=='s') {  
+      set(1, 1);  
+      println("cursor:vartical, img:side");
+    }
+    if (key=='z') {  
+      set(0, 2);  
+      println("cursor:horizontal, img:front");
+    }
+    if (key=='x') {  
+      set(1, 2);  
+      println("cursor:vartical, img:front");
+    }
+  } else {
+    setup();
+    cursor_section=1;
+    println("reset cursor");
+  }
+}
+
+
+void mousePressed() {
+
+  fill(0, 0, 0);
+  noStroke();
+  smooth();
+
+  switch(cursor_section) {
+  case 1:
+    mode_select();
+    x = mouseX;
+    y = mouseY;
+    println("x:"+x+",y:"+y);
+
+    auto_cursor();
+    prex=x;
+    prey=y;
+
+    println("end first section:"+" eval:"+eval);
+    cursor_section=2;
+    break;
+
+  case 2:
+    if (cursor_mode==0)
+      y = mouseY;
+    else
+      x = mouseX;
+    println("x:"+x+",y:"+y);
+
+    auto_cursor();
+    println("end second section:"+" eval:"+eval);
+    cursor_section=1;
+    
+    measure();
+    break;
+  }
+}
+
+void auto_cursor(){
+  base=gray_scale(x, y);
+  println("base:"+base);
+
+  for (i=1;; i++) {
+    switch(cursor_mode) {
+    case 0:
+      if (i%2==1)
+        y+=i;
+      else
+        y-=i;
+      break;
+
+    case 1:
+      if (i%2==1)
+        x+=i;
+      else
+        x-=i;
+      break;
+    }
+    println("x:"+x+",y:"+y);
+
+    compare=gray_scale(x, y);
+    println("compare:"+compare);
+
+    eval=base-compare;
+    if (eval<0)
+      eval=-1*eval;
+
+    if (eval>20) {
+      switch(cursor_mode) {
+      case 0:
+        rect(x, y, 40, 1);
+        rect(x, y, -40, 1);
+        break;
+
+      case 1:
+        rect(x, y, 1, 40);
+        rect(x, y, 1, -40);
+        break;
+      }
+      break;
+    }
+  }
+}
+
+int gray_scale(int x, int y ) {
+  if (img_mode==1) {
+    r=int(red(img1.get(s*(x-Xoffset), s*(y-Yoffset))));
+    g=int(green(img1.get(s*(x-Xoffset), s*(y-Yoffset))));
+    b=int(blue(img1.get(s*(x-Xoffset), s*(y-Yoffset))));
+  } else {
+    r=int(red(img2.get(s*(x-Xoffset), s*(y-Yoffset))));
+    g=int(green(img2.get(s*(x-Xoffset), s*(y-Yoffset))));
+    b=int(blue(img2.get(s*(x-Xoffset), s*(y-Yoffset))));
+  }
+  return int(0.33*r+0.59*g+0.11*b);
+}
+
+
+void set(int cursor_flag, int img_flag) {
+  cursor_mode=cursor_flag;
+  img_mode=img_flag;
+  if (img_mode==2)
+    Xoffset=img_w/s;
+}
+
+
+void measure(){
+  switch(measure_mode){
+    case 0:  //calculat pixel
+    calculation();
+    measure_mode++;
+    break;
+    
+    case 1:  //calculat shoulder
+    shoulder=calculation();
+    println("syoulder:"+shoulder);
+   // measure_mode++;
+    break;
+  }
+}
+
+float calculation() {
+  if (cursor_mode==0) {
+    l=prey-y;
+    println("prey:"+prey+" y:"+y);
+    if (l<0)
+      l=-1*l;
+    if (pixel==0){
+      pixel=h/l;
+      println("pixel:"+pixel);
+    }else
+      ans=l*pixel;
+  } else {
+    l=prex-x;
+    println("prex:"+prex+" x:"+x);
+    if (l<0)
+      l=-1*l;
+    ans=l*pixel;
+  }
+  return ans;
+}
+
+void mode_select(){
+ switch(mode){
+  case 0:  //height
+  set(0,1);
+  mode++;
+  break;
+  
+  case 1:  //shoulder
+  set(1,2);
+  break;
+ }
+}
+        </script>
+    </body>
+</html>
