@@ -55,7 +55,7 @@ h4{
 h5{
     position: absolute;
     top: 180px;
-    left: 240px;
+    left: 190px;
     font: italic 1em/0em "Times New Roman", serif;
     z-index: 3;
     animation: appear 8s;
@@ -66,8 +66,8 @@ h5{
 
 h6{
     position: absolute;
-    top: 210px;
-    left: 255px;
+    top: 170px;
+    left: 500px;
     font: italic 1em/0em "Times New Roman", serif;
     z-index: 3;
     animation: appear 8s;
@@ -82,7 +82,7 @@ h6{
     font-size: 1.3em; /*フォントのサイズ*/
     padding: 50px, 100px;
 	position:absolute;
-    top: 300px;
+    top: 600px;
     left: 500px;
 	background-color:burlywood;/*背景の色*/
 	border-radius: 5px; /*ボタンの丸み*/
@@ -113,3 +113,18 @@ h6{
     animation: womenMove 4s;
     z-index: 4;
 }
+
+.imgView1{
+    position:absolute;
+    top: 250px;
+    left: 190px;
+     width: 250px;
+}
+
+.imgView2{
+    position:absolute;
+    top: 250px;
+    left: 490px;
+     width: 250px;
+}
+
