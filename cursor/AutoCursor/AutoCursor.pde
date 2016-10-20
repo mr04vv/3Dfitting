@@ -1,5 +1,5 @@
 /*
-仕様
+仕様※変更箇所あり
  クリックした画素に対して縦or横方向に探索をかけてエッジ（色の変化の大きいところ）にカーソルが出る.
  2個目のカーソルはその方向の座標を保存して表示.
  デバック用にコンソールにメッセージを表示.メッセージの内容は以下の通り.
@@ -22,23 +22,23 @@ int img_h = 3264;
 int img_w = 2448;
 int s = 7;
 int x=0, y=0; 
-int prex, prey;
+int prex, prey;  //前の座標保存用
 PImage img1;
 PImage img2;
 int r, g, b;
 int base, compare, eval;
 int i;
-int cursor_section=1;
+int cursor_section=1;    //1:1回目のカーソル　2:2回目のカーソル
 int cursor_mode=0;   //0:holizontal, 1:vartical
 int img_mode=1;     //1;img1, 2:img2
-int Xoffset, Yoffset;
+int Xoffset, Yoffset;   
 float ans;
 float height=169;
 float pixel;
 float l;  //length
-int measure_mode=0;
+int measure_mode=0;    //計測部位指定用
 float shoulder;
-int mode;  //全体の流れ管理用
+int mode;  //計測部位指定用
 
 
 void setup() {
@@ -60,7 +60,7 @@ void draw() {
 }
 
 
-void keyPressed() {
+void keyPressed() {    //使ってない
   if (key!='q') {
     println("cursor mode changed");
     if (key=='a') {  
@@ -109,7 +109,7 @@ void mousePressed() {
     break;
 
   case 2:
-    if (cursor_mode==0)
+    if (cursor_mode==0)    //片方の座標は保存
       y = mouseY;
     else
       x = mouseX;
@@ -124,7 +124,7 @@ void mousePressed() {
   }
 }
 
-void auto_cursor(){
+void auto_cursor(){    //エッジ（背景との境目）の探索
   base=gray_scale(x, y);
   println("base:"+base);
 
@@ -170,7 +170,7 @@ void auto_cursor(){
   }
 }
 
-int gray_scale(int x, int y ) {
+int gray_scale(int x, int y ) {    //グレースケール化
   if (img_mode==1) {
     r=int(red(img1.get(s*(x-Xoffset), s*(y-Yoffset))));
     g=int(green(img1.get(s*(x-Xoffset), s*(y-Yoffset))));
@@ -184,7 +184,7 @@ int gray_scale(int x, int y ) {
 }
 
 
-void set(int cursor_flag, int img_flag) {
+void set(int cursor_flag, int img_flag) {    //カーソルの方向、対応画像指定
   cursor_mode=cursor_flag;
   img_mode=img_flag;
   if (img_mode==2)
@@ -192,7 +192,7 @@ void set(int cursor_flag, int img_flag) {
 }
 
 
-void measure(){
+void measure(){    //値算出部位の指定
   switch(measure_mode){
     case 0:  //calculat pixel
     calculation();
@@ -207,7 +207,7 @@ void measure(){
   }
 }
 
-float calculation() {
+float calculation() {    //値の算出
   if (cursor_mode==0) {
     l=prey-y;
     println("prey:"+prey+" y:"+y);
@@ -228,7 +228,7 @@ float calculation() {
   return ans;
 }
 
-void mode_select(){
+void mode_select(){    //全体のフローを指定
  switch(mode){
   case 0:  //height
   set(0,1);
