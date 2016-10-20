@@ -6,9 +6,11 @@
 <link rel="stylesheet"
           href="cursor.css">
     </head>
-    <body>
+    <body> 
+        <a class="button" href="#" style="width:250px; height:80px;" onclick="jump_main()"><span>START!!</span></a>   
    <canvas id="mycanvas"></canvas><br />
  
+    <script type="text/javascript" src="../main.js"></script>    
     <script src="processing-1.4.1.min.js" type="text/javascript"></script>
     <script type="application/processing" data-processing-target="mycanvas"> 
     
@@ -29,12 +31,10 @@ int cursor_section=1;
 int cursor_mode=0;   //0:holizontal, 1:vartical
 int img_mode=1;     //1;img1, 2:img2
 int Xoffset, Yoffset;
-float h = 169;
 float ans;
 float pixel;
 float l;  //length
 int measure_mode=0;
-float shoulder;
 int mode;  //全体の流れ管理用
 
 

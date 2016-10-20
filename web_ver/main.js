@@ -1,4 +1,32 @@
+var h = 169;
+var shoulder;
+var chest = 92;
+var waist = 82;
+var shoulder_size;
+var chest_size;
+var waist_size;
 
+<!--チェスト、ウエストは中央値-->
+function Data(shoulder, chest, waist){
+    this.shoulder = shoulder;
+    this.chest = chest;
+    this.waist = waist;
+}
+
+<!--MEN ウォッシュボーダー-->
+var uniT_xs = new Data(40,81,69);
+var uniT_s = new Data(41.5,84,72);
+var uniT_m = new Data(43,92,80);
+var uniT_l = new Data(44.5,100,88);
+var uniT_xl = new Data(46.5,108,96);
+
+
+function ClosizeCalclation(closes_shoulder, closes_chest, closes_waist){
+    shoulder_size = shoulder - closes_shoulder;
+    chest_size = chest - closes_chest;
+    waist_size = waist - closes_waist;
+    location.href = "../size.html";
+}
 
 function jump_main(){
     location.href="../main/index.html";
@@ -18,6 +46,10 @@ if (btnNo == 1){
 
 function jump_cursor(){
    location.href = "../../cursor/cursor.html";
+}
+
+function jump_uniT(){
+    location.href = "uniT/uniT.html";
 }
 
 
