@@ -22,7 +22,7 @@ h1{
 	color: white;
 }
 
-#pants{
+#bottoms{
 	position: absolute;
 	top: 330px
 }
@@ -36,3 +36,39 @@ a:hover img{
     opacity: 0.6;
     filter: alpha(opacity=60);
 }/*ホバーした時に透過*/
+
+#yshirt{
+	position: absolute;
+	top: 100px;
+	left: 300px
+}
+
+#text3{
+	position: absolute;
+	top: 250px;
+	left: 343px
+}
+
+#tshirt1{
+	position: absolute;
+	top: 100px;
+	left: 480px
+}
+
+#text4{
+	position: absolute;
+	top: 250px;
+	left: 530px
+}
+
+#sweater{
+	position: absolute;
+	top: 100px;
+	left: 660px
+}
+
+#text5{
+	position: absolute;
+	top: 250px;
+	left: 700px
+}

@@ -4,19 +4,40 @@
     <meta charset="utf-8">
     <title>Measure</title>
 <link rel="stylesheet"
-          href="tryon.css">
+          href="uniT.css">
  <script type="text/javascript" src="../../main.js"></script>
     </head>
     
     <body bgcolor="#faf0e6">
     
-        <h1>ユニクロTシャツ</h1>
-        <a class="ｓ" href="#" style="width:250px; height:80px;" onclick="ClosizeCalclation(3,3,3)"><span>S</span></a>   
-        <a class="m" href="#" style="width:250px; height:80px;" onclick="ClosizeCalclation(uniT_m.shoulder,uniT_m.chest,uniT_m.waist)"><span>M</span></a>   
-        <a class="l" href="#" style="width:250px; height:80px;" onclick="ClosizeCalclation(uniT_l.shoulder,uniT_l.chest,uniT_l.waist)"><span>L</span></a>   
+        <h1>Closize</h1>
+        <a class="button" href="#" style="width:250px; height:80px;" onclick="jump_uniT()"><span>ユニクロTシャツ</span></a>   
 
+        <div id="tshirt">
+            <a href="#" onClick="jump_uniT()"><img src="tshirt.jpg" alt="button" width = 250px;> </a>
+        </div>
+        <div id="text1">トップス</div>
         
+		 <div id="bottoms">
+            <a href="#" onClick="jump_uniB()"><img src="bottoms.jpg" alt="button" width = 250px;> </a>
+        </div>
+        <div id="text2">ボトムズ</div>
         
+		<div id="yshirt">
+            <a href="#" onClick="jump_check()"><img src="yshirt.jpg" alt="button" width = 150px;> </a>
+        </div>
+        <div id="text3">ワイシャツ</div>
+		
+		<div id="tshirt1">
+            <a href="#" onClick="jump_check()"><img src="tshirt1.jpg" alt="button" width = 150px;> </a>
+        </div>
+        <div id="text4">Tシャツ</div>
+		
+		<div id="sweater">
+            <a href="#" onClick="jump_check()"><img src="sweater.jpg" alt="button" width = 150px;> </a>
+        </div>
+        <div id="text5">セーター</div>
+		
     </body>
 
     </html>

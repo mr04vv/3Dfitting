@@ -50,8 +50,15 @@ function jump_cursor(){
 
 function jump_uniT(){
     location.href = "uniT/uniT.html";
-}
+}/*tシャツを選択した場合*/
 
+function jump_uniP(){
+	location.href = "uniP/uniP.html";
+}/*パンツを選択した場合*/
+
+function jump_check(){
+	location.href = "../../check/check.html";
+}
 
 
 
