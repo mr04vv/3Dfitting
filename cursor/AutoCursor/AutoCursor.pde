@@ -61,23 +61,111 @@ void draw() {
 
 
 void keyPressed() {    //使ってない
-  if (key!='q') {
-    println("cursor mode changed");
+    if (key!='q' || key!='u' || key!='d') {
+    if (key!='u' && key!='d' && key!='l' && key!='r')  println("cursor mode changed");
+    
     if (key=='a') {  
       set(0, 1);  
       println("cursor:horizontal, img:side");
     }
+    
     if (key=='s') {  
       set(1, 1);  
       println("cursor:vartical, img:side");
     }
+    
     if (key=='z') {  
       set(0, 2);  
       println("cursor:horizontal, img:front");
     }
+    
     if (key=='x') {  
       set(1, 2);  
       println("cursor:vartical, img:front");
+    }
+    
+    if (key=='u'){
+      println("move up");
+      if (cursor_section==2){
+          image(img1, 0, 0, img_w/s, img_h/s);
+          image(img2, 2448/s, 0, img_w/s, img_h/s);
+          prey--;
+          rect(x, prey, 40, 1);
+          rect(x, prey, -40, 1);
+      } else {
+          image(img1, 0, 0, img_w/s, img_h/s);
+          image(img2, 2448/s, 0, img_w/s, img_h/s);
+          rect(prex, prey, 40, 1);
+          rect(prex, prey, -40, 1);
+          y--;
+          rect(x, y, 40, 1);
+          rect(x, y, -40, 1);
+          measure_mode = 0;
+          pixel = 0;
+          measure();
+      }
+    }
+    
+    if (key=='d'){
+      println("move down");
+      if (cursor_section==2){
+          image(img1, 0, 0, img_w/s, img_h/s);
+          image(img2, 2448/s, 0, img_w/s, img_h/s);
+          prey++;
+          rect(x, prey, 40, 1);
+          rect(x, prey, -40, 1);
+      } else {
+          image(img1, 0, 0, img_w/s, img_h/s);
+          image(img2, 2448/s, 0, img_w/s, img_h/s);
+          rect(prex, prey, 40, 1);
+          rect(prex, prey, -40, 1);
+          y++;
+          rect(x, y, 40, 1);
+          rect(x, y, -40, 1);
+          measure_mode = 0;
+          pixel = 0;
+          measure();
+      }
+    }
+    
+    if (key=='l'){
+      println("move left");
+      if (cursor_section==2){
+          image(img1, 0, 0, img_w/s, img_h/s);
+          image(img2, 2448/s, 0, img_w/s, img_h/s);
+          prex--;
+          rect(prex, y, 1, 40);
+          rect(prex, y, 1, -40);
+      } else {
+          image(img1, 0, 0, img_w/s, img_h/s);
+          image(img2, 2448/s, 0, img_w/s, img_h/s);
+          rect(prex, prey, 1, 40);
+          rect(prex, prey, 1, -40);
+          x--;
+          rect(x, y, 1, 40);
+          rect(x, y, 1, -40);
+          measure();
+      }
+    }
+    
+    if (key=='r'){
+      println("move right");
+      if (cursor_section==2){
+          image(img1, 0, 0, img_w/s, img_h/s);
+          image(img2, 2448/s, 0, img_w/s, img_h/s);
+          prex++;
+          rect(prex, y, 1, 40);
+          rect(prex, y, 1, -40);
+      } else {
+          image(img1, 0, 0, img_w/s, img_h/s);
+          image(img2, 2448/s, 0, img_w/s, img_h/s);
+          rect(prex, prey, 1, 40);
+          rect(prex, prey, 1, -40);
+          x++;
+          rect(x, y, 1, 40);
+          rect(x, y, 1, -40);
+          measure();
+      }
     }
   } else {
     setup();
