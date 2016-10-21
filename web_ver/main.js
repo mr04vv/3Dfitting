@@ -52,8 +52,8 @@ function jump_uniT(){
     location.href = "uniT/uniT.html";
 }/*tシャツを選択した場合*/
 
-function jump_uniP(){
-	location.href = "uniP/uniP.html";
+function jump_uniB(){
+	location.href = "uniB/uniB.html";
 }/*パンツを選択した場合*/
 
 function jump_check(){
