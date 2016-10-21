@@ -1,7 +1,7 @@
 var h = 169;
-var shoulder;
-var chest = 92;
-var waist = 82;
+var body_shoulder;
+var body_chest = 92;
+var body_waist = 82;
 var shoulder_size;
 var chest_size;
 var waist_size;
@@ -21,10 +21,10 @@ var uniT_l = new Data(44.5,100,88);
 var uniT_xl = new Data(46.5,108,96);
 
 
-function ClosizeCalclation(closes_shoulder, closes_chest, closes_waist){
-    shoulder_size = shoulder - closes_shoulder;
-    chest_size = chest - closes_chest;
-    waist_size = waist - closes_waist;
+function ClosizeCalclation(clothes_shoulder, clothes_chest, clothes_waist){
+    shoulder_size = body_shoulder - clothes_shoulder;
+    chest_size = body_chest - clothes_chest;
+    waist_size = body_waist - clothes_waist;
     location.href = "../size.html";
 }
 
