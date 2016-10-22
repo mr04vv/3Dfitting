@@ -45,8 +45,8 @@ void setup() {
 
   size(1000, 600);
 
-  img1 = loadImage("yuki_side.jpg");
-  img2 = loadImage("yuki_front.jpg");
+  img1 = loadImage("yuki_side.JPG");
+  img2 = loadImage("yuki_front.JPG");
 
   image(img1, 0, 0, img_w/s, img_h/s);
   image(img2, 2448/s, 0, img_w/s, img_h/s);
