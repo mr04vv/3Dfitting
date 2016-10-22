@@ -12,3 +12,12 @@
 	color:darkgray; /*文字の色*/
     animation: appear 8s;
 }
+
+h1{
+    position: absolute;
+    top: 0px;
+    left: 280px;
+    font: italic 5em/0em "Times New Roman", serif;
+    color:aqua;
+	z-index: 3;
+}

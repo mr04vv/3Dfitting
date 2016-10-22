@@ -79,14 +79,14 @@ h6{
 	position:absolute;
     top: 600px;
     left: 500px;
-	background-color:burlywood;/*背景の色*/
+	background-color:bisque;/*背景の色*/
 	border-radius: 5px; /*ボタンの丸み*/
-	color: #fff; /*文字の色*/
+	color:grey; /*文字の色*/
     animation: appear 8s;
+	text-decoration: none;
 }
 .button:hover {
-	background-color: aqua;
-	box-shadow: 1px 1px 0 #23a188;
+	background-color:aliceblue;
 }
 
 

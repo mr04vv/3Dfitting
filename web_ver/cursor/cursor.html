@@ -7,6 +7,11 @@
           href="cursor.css">
     </head>
     <body> 
+		
+		<body bgcolor="#faf0e6">
+    
+        <h1>Closize</h1>
+			
         <a class="button" href="#" style="width:250px; height:80px;" onclick="jump_main()"><span>START!!</span></a>   
    <canvas id="mycanvas"></canvas><br />
  
@@ -17,7 +22,7 @@
 		function DataReceive(){
 			var data = location.search.substring(1, location.search.length);
 			data = unescape(data);
-			alert(data);
+			//alert(data);
 		}
 			window.onload = DataReceive;
 		</script>

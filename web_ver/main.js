@@ -60,6 +60,9 @@ function jump_check(){
 	location.href = "../../check/check.html";
 }
 
+function jump_tryon(){
+	location.href = "../tryon/tryon.html";
+}
 
 
     
