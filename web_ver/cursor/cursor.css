@@ -5,12 +5,16 @@
     text-align: center;/*文字の位置*/
    font: italic 4em "Times New Roman", serif;
 	position:absolute;
-    top: 100px;
-    left: 610px;
-	background-color:#faf0e6;/*背景の色*/
+    top: 450px;
+    left: 300px;
+	background-color:bisque;/*背景の色*/
 	border-radius: 5px; /*ボタンの丸み*/
-	color:darkgray; /*文字の色*/
-    animation: appear 8s;
+	color:gray; /*文字の色*/
+	text-decoration: none;
+}
+
+.button:hover{
+	background-color: aliceblue;
 }
 
 h1{
@@ -20,4 +24,11 @@ h1{
     font: italic 5em/0em "Times New Roman", serif;
     color:aqua;
 	z-index: 3;
+}
+
+#mycanvas{
+	position: absolute;
+	top: 100px;
+	left: 30px;
+	border: 2px solid;
 }
