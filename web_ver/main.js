@@ -68,6 +68,9 @@ function jump_check(){
 	location.href = "../../check/check.html?"+location.search.substring(1);
 }
 
+function jump_tryon(){
+	location.href = "../tryon/tryon.html";
+}
 
 
     
