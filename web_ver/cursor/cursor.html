@@ -9,7 +9,6 @@
 		
 		<body bgcolor="#faf0e6">
     
-        <h1>Closize</h1>
 			
         <a class="button" href="#" style="width:250px; height:80px;" onclick="jump_main()"><span>START!!</span></a>   
    <canvas id="mycanvas"></canvas><br />
@@ -204,6 +203,8 @@ void set(int cursor_flag, int img_flag) {
     Xoffset=img_w/s;
 }
 
+int body_front;
+int body_side;
 
 void measure(){
   switch(measure_mode){
@@ -215,7 +216,21 @@ void measure(){
     case 1:  //calculat shoulder
     body_shoulder=calculation();
     println("body_shoulder:"+body_shoulder);
-   // measure_mode++;
+    measure_mode++;
+    break;
+    
+    case 2:  //calculat chest
+    body_front=calculation();
+    println("chest_front:"+body_front);
+    measure_mode++;
+    break;
+    
+    case 3:
+    body_side=calculation();
+    println("chest_side:"+body_side);
+    body_chest=body_front+body_side;
+    println("body_chest:"+body_chest);
+    measure_mode++;
     break;
   }
 }
@@ -250,6 +265,17 @@ void mode_select(){
   
   case 1:  //shoulder
   set(1,2);
+  mode++;
+  break;
+  
+  case 2:
+  set(1,1);
+  mode++;
+  break;
+  
+  case 3:
+  set(1,2);
+  mode++;
   break;
  }
 }
