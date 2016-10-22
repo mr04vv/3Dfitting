@@ -12,7 +12,7 @@
     
         <h1>Closize</h1>
         
-        <h2>身長を入力し</h2>
+        <h2>身長を入力して</h2>
         <h3>画像を読み込んでください</h3>
         <div id="men">
             <img src="men.jpg" width = 300px; height = 400px;>
@@ -24,8 +24,6 @@
         </div>
         <!--<div id="text2">女性</div>//-->
         
-        <h4>身長入力: <input type="number" name="h">cm</h4>
-        
         <div class="imageF">
             <h5>正面の画像:<input type="file" name="file1" size="20" accept="image/*"></h5><!--画像選択/-->
         </div>
@@ -33,6 +31,16 @@
         <div class="imageS">
             <h6>横の画像:<input type="file" name="file2" size="20" accept="image/*"></h6><!--画像選択/-->
         </div>
+		
+		<script type="text/javascript">
+		</script>
+		<!--データ送信-->
+		<script>
+		function DataSend(){
+		location.href = "../../cursor/cursor.html?" + escape(document.form1.number1.value);
+		}
+		</script>
+		<!--ここまで-->
         
         <script type="text/javascript">
         </script>
@@ -111,9 +119,10 @@ $(function(){
 });
 </script>
     
-        
-        <a class="button"  onclick="jump_cursor()" href="#" style="width:150px; height:35px;"><span>内容確認！</span></a>
-        
+        <form name="form1">
+		 <h4>身長入力: <input type="number" name="number1">cm</h4>
+        <a class="button"  onclick="jump_cursor(); DataSend()" href="#" style="width:150px; height:35px;"><span>内容確認！</span></a>
+		</form>
        
     </body>
 

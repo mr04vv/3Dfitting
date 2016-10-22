@@ -10,6 +10,19 @@
         <a class="button" href="#" style="width:250px; height:80px;" onclick="jump_main()"><span>START!!</span></a>   
    <canvas id="mycanvas"></canvas><br />
  
+		<script type="text/javascript" src="../main.js"> 
+		</script>
+		<!--データ受け取り-->
+		<script>
+		function DataReceive(){
+			var data = location.search.substring(1, location.search.length);
+			data = unescape(data);
+			alert(data);
+		}
+			window.onload = DataReceive;
+		</script>
+		<!--ここまで-->
+		
     <script type="text/javascript" src="../main.js"></script>    
     <script src="processing-1.4.1.min.js" type="text/javascript"></script>
     <script type="application/processing" data-processing-target="mycanvas"> 
