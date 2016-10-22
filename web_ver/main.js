@@ -1,9 +1,9 @@
 var h = 169;
-var body_shoulder;
-var body_chest = 92;
-var body_waist = 82;
+var body_shoulder =40;
+var body_chest = 90;
+var body_waist = 80;
 var shoulder_size;
-var chest_size;
+var chest_size= 10 ;
 var waist_size;
 
 <!--チェスト、ウエストは中央値-->
