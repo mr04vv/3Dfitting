@@ -220,18 +220,28 @@ void measure(){
     break;
     
     case 2:  //calculat chest
-    body_front=calculation();
-    println("chest_front:"+body_front);
+    body_side=calculation();
+    println("chest_side:"+body_side);
     measure_mode++;
     break;
     
     case 3:
-    body_side=calculation();
-    println("chest_side:"+body_side);
+    body_front=calculation();
+    println("chest_front:"+body_front);
     body_chest=body_front+body_side;
     println("body_chest:"+body_chest);
     measure_mode++;
     break;
+    
+    case 4:
+    body_side=calculation();
+    measure_mode++;
+    break;
+    
+    case 5:
+    body_front=calculation();
+    body_waist=body_front+body_side;
+    println("body_waist:"+body_waist);
   }
 }
 
@@ -274,6 +284,16 @@ void mode_select(){
   break;
   
   case 3:
+  set(1,2);
+  mode++;
+  break;
+  
+  case 4:
+  set(1,1);
+  mode++;
+  break;
+  
+  case 5:
   set(1,2);
   mode++;
   break;
