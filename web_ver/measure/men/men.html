@@ -36,8 +36,8 @@
 		</script>
 		<!--データ送信-->
 		<script>
-		function DataSend(){
-		location.href = "../../cursor/cursor.html?" + escape(document.form1.number1.value);
+		function heightSend(){
+		location.href = "../../cursor/cursor.html?" + document.inputhight.number1.value;
 		}
 		</script>
 		<!--ここまで-->
@@ -119,9 +119,9 @@ $(function(){
 });
 </script>
     
-        <form name="form1">
+        <form name="inputhight">
 		 <h4>身長入力: <input type="number" name="number1">cm</h4>
-        <a class="button"  onclick="jump_cursor(); DataSend()" href="#" style="width:150px; height:35px;"><span>内容確認！</span></a>
+        <a class="button"  onclick="heightSend();" href="#" style="width:150px; height:35px;"><span>内容確認！</span></a>
 		</form>
        
     </body>

@@ -14,12 +14,11 @@
 		</script>
 		<!--データ受け取り-->
 		<script>
-		function DataReceive(){
-			var data = location.search.substring(1, location.search.length);
-			data = unescape(data);
-			alert(data);
+		function heightReceive(){
+			h = location.search.substring(1);
+			alert(h);
 		}
-			window.onload = DataReceive;
+			window.onload = heightReceive;
 		</script>
 		<!--ここまで-->
 		

@@ -6,13 +6,16 @@
 <link rel="stylesheet"
           href="check.css">
  <script type="text/javascript" src="../../main.js"></script>
+    <script type="text/javascript">
+    window.onload = Dataset();
+    </script>
     </head>
     
     <body bgcolor="#faf0e6">
     
         <h1>Closize</h1>
 		
-        <a class="s" href="#" style="width:90px; height:90px;" onclick="ClosizeCalclation(3,3,3)"><span>S</span></a>   
+        <a class="s" href="#" style="width:90px; height:90px;" onclick="ClosizeCalclation(uniT_s.shoulder,uniT_s.chest,uniT_s.waist)"><span>S</span></a>   
 		
         <a class="m" href="#" style="width:90px; height:90px;" onclick="ClosizeCalclation(uniT_m.shoulder,uniT_m.chest,uniT_m.waist)"><span>M</span></a> 
 		
@@ -45,7 +48,11 @@ void setup() {
   fill(0, 0, 0);
   noStroke();
   smooth();
-  println(chest_size);
+  println(body_shoulder);
+  println(body_chest);
+  println(body_waist);
+  println(uniT_s.shoulder);
+  println(shoulder_size);
 
 //char size
   text("小さすぎ", baseX-25, baseY-30);
@@ -72,14 +79,19 @@ int ebaseX=baseX+2;
 int ebaseY=baseY+2;
 
 void draw() {
+if(!(shoulder_size==0 && chest_size==0 && waist_size==0)){
   if(shoulder_size>0)
   myellipse(ebaseX,ebaseY);
   if(chest_size<0)
   myellipse(ebaseX+span,ebaseY);
   if(waist_size<0)
   myellipse(ebaseX+2*span,ebaseY);
+  }
+  if(sizeflag==1){
+setup();
+sizeflag=0;
 }
-
+}
 
 void myellipse(int x, int y){
   fill(255,0,0);
