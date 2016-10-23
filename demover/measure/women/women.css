@@ -1,0 +1,130 @@
+@charset"UTF-8";
+
+@keyframes menDisappear{
+    0%{opacity: 1; visibility: visible;}
+    100%{opacity: 0; visibility: hidden;}
+}
+
+@keyframes womenMove{
+    0%{left:390px; top:130px; clip:rect(0px, 300px, 400px, 0px)}
+    100%{left:-60px; top:130px;  clip:rect(0px, 220px, 400px, 80px)}
+}
+
+@keyframes appear{
+    0%{opacity: 0;}
+    100%{opacity: 100;}
+    
+}
+
+h1{
+    position: absolute;
+    top: 0px;
+    left: 280px;
+    font: italic 5em/0em "Times New Roman", serif;
+    color:aqua;
+    z-index: 3;/*優先順位*/
+    
+}/*Closize*/
+
+h2{
+    position: absolute;
+    top: 80px;
+    left: 240px;
+    font: italic 1.8em/0em "Tines New Roman", serif;
+    z-index: 3;
+    animation: appear 8s;
+}
+
+h3{
+    position: absolute;
+    top: 110px;
+    left: 290px;
+    font: italic 1.8em/0em "Times New Roman", serif;
+    animation: appear 8s;
+}
+
+h4{
+    position: absolute;
+    top: 150px;
+    left: 255px;
+    font: italic 1em/0em "Times New Roman", serif;
+    z-index: 3;
+    animation: appear 8s;
+}
+
+h5{
+    position: absolute;
+    top: 180px;
+    left: 190px;
+    font: italic 1em/0em "Times New Roman", serif;
+    z-index: 3;
+    animation: appear 8s;
+}
+
+#imageFront{
+}
+
+h6{
+    position: absolute;
+    top: 170px;
+    left: 500px;
+    font: italic 1em/0em "Times New Roman", serif;
+    z-index: 3;
+    animation: appear 8s;
+}
+
+#imageSide{
+}
+
+
+.button {
+    text-align: center;/*文字の位置*/
+    font-size: 1.3em; /*フォントのサイズ*/
+    padding: 50px, 100px;
+	position:absolute;
+    top: 600px;
+    left: 500px;
+	background-color:bisque;/*背景の色*/
+	border-radius: 5px; /*ボタンの丸み*/
+	color: grey; /*文字の色*/
+    animation: appear 8s;
+	text-decoration: none;
+}
+
+.button:hover {
+	background-color:aliceblue;
+}
+
+
+#men{
+    position: absolute;
+    top: 130px;
+    left: 80px;
+    animation: menDisappear 4s;
+    z-index: 4;
+    visibility: hidden;
+}
+
+#women{
+    position: absolute;
+    top: 130px;
+    left: -60px;
+    clip: rect(0px, 220px, 400px, 80px);
+    animation: womenMove 4s;
+    z-index: 4;
+}
+
+.imgView1{
+    position:absolute;
+    top: 250px;
+    left: 190px;
+     width: 250px;
+}
+
+.imgView2{
+    position:absolute;
+    top: 250px;
+    left: 490px;
+     width: 250px;
+}
+

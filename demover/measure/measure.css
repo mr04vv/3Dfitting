@@ -1,0 +1,38 @@
+@charset"UTF-8";
+
+h1{
+    position: absolute;
+    top: 0px;
+    left: 280px;
+    font: italic 5em/0em "Times New Roman", serif;
+    color:aqua;
+    z-index: 3;/*優先順位*/
+    
+}/*Closize*/
+
+h2{
+    position: absolute;
+    top: 80px;
+    left: 240px;
+    font: italic 1.8em/0em "Times New Roman", serif;
+    z-index: 3;
+}
+
+#men{
+    position: absolute;
+    top: 130px;
+    left: 80px;
+    z-index: 2;
+}
+
+#women{
+    position: absolute;
+    top: 130px;
+    left: 390px;
+    z-index: 2;
+}
+
+a:hover img{
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+}/*ホバーした時に透過*/

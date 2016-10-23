@@ -1,0 +1,34 @@
+@charset"UTF-8";
+
+
+.button {
+    text-align: center;/*文字の位置*/
+   font: italic 4em "Times New Roman", serif;
+	position:absolute;
+    top: 450px;
+    left: 650px;
+	background-color:bisque;/*背景の色*/
+	border-radius: 5px; /*ボタンの丸み*/
+	color:gray; /*文字の色*/
+	text-decoration: none;
+}
+
+.button:hover{
+	background-color: aliceblue;
+}
+
+h1{
+    position: absolute;
+    top: 0px;
+    left: 280px;
+    font: italic 5em/0em "Times New Roman", serif;
+    color:aqua;
+	z-index: 3;
+}
+
+#mycanvas{
+	position: absolute;
+	top: 100px;
+	left: 30px;
+	border: 2px solid;
+}

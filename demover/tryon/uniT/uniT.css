@@ -1,0 +1,114 @@
+@charset"UTF-8";
+
+@keyframes yshirtimg{
+    0%{left:30px; top:100px;}
+    100%{left:300px; top:100px;}
+}/*yshirtアニメーション*/
+@keyframes yshirttext{
+    0%{left:30px; top:250px;}
+    100%{left:343px; top:250px;}
+}/*yshirtアニメーション*/
+
+@keyframes tshirt1img{
+    0%{left:30px; top:100px;}
+    100%{left:480px; top:100px;}
+}/*yshirtアニメーション*/
+@keyframes tshirt1text{
+    0%{left:30px; top:250px;}
+    100%{left:530px; top:250px;}
+}/*yshirtアニメーション*/
+
+@keyframes sweaterimg{
+    0%{left:30px; top:100px;}
+    100%{left:660px; top:100px;}
+}/*yshirtアニメーション*/
+@keyframes sweatertext{
+    0%{left:30px; top:250px;}
+    100%{left:700px; top:250px;}
+}/*yshirtアニメーション*/
+
+h1{
+    position: absolute;
+    top: 0px;
+    left: 280px;
+    font: italic 5em/0em "Times New Roman", serif;
+    color:aqua;
+    z-index: 3;/*優先順位*/
+    
+}/*Closize*/
+
+#tshirt{
+	position: absolute;
+	top: 100px;
+	z-index: 99;
+}
+
+#text1{
+	position: absolute;
+	top:100px;
+	color: white;
+}
+
+#bottoms{
+	position: absolute;
+	top: 330px;
+	z-index: 99;
+}
+
+#text2{
+	position: absolute;
+	top: 330px;
+}
+
+a:hover img{
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+}/*ホバーした時に透過*/
+
+#yshirt{
+	position: absolute;
+	top: 100px;
+	left: 300px;
+	animation: yshirtimg 1s;
+	z-index: 0;
+}
+
+#text3{
+	position: absolute;
+	top: 250px;
+	left: 343px;
+	animation: yshirttext 1s;
+	z-index: 0;
+}
+
+#tshirt1{
+	position: absolute;
+	top: 100px;
+	left: 480px;
+	animation: tshirt1img 1.1s;
+	z-index: 1;
+}
+
+#text4{
+	position: absolute;
+	top: 250px;
+	left: 530px;
+	animation: tshirt1text 1.1s;
+	z-index: 1;
+}
+
+#sweater{
+	position: absolute;
+	top: 100px;
+	left: 660px;
+	animation: sweaterimg 1.2s;
+	z-index: 2;
+}
+
+#text5{
+	position: absolute;
+	top: 250px;
+	left: 700px;
+	animation: sweatertext 1.2s;
+	z-index: 2;
+}

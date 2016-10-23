@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Measure</title>
+<link rel="stylesheet"
+          href="men.css">
+ <script type="text/javascript" src="../../main.js"></script>
+    </head>
+    
+    <body bgcolor="#faf0e6">
+    
+        <h1>Closize</h1>
+        
+        <h2>身長を入力して</h2>
+        <h3>画像を読み込んでください</h3>
+        <div id="men">
+            <img src="men.jpg" width = 300px; height = 400px;>
+        </div>
+        <!--<div id="text1">男性</div>//-->
+        
+        <div id="women">
+            <img src="women.jpg" width = 300px; height = 400px;>
+        </div>
+        <!--<div id="text2">女性</div>//-->
+        
+        <div class="imageF">
+            <h5>正面の画像:<input type="file" name="file1" size="20" accept="image/*"></h5><!--画像選択/-->
+        </div>
+        
+        <div class="imageS">
+            <h6>横の画像:<input type="file" name="file2" size="20" accept="image/*"></h6><!--画像選択/-->
+        </div>
+		
+		<script type="text/javascript">
+		</script>
+		<!--データ送信-->
+		<script>
+		function heightSend(){
+		location.href = "../../cursor/cursor.html?" + document.inputhight.number1.value;
+		}
+		</script>
+		<!--ここまで-->
+        
+        <script type="text/javascript">
+        </script>
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$(function(){
+  var imageInput = $(".imageF");
+    imageInput.each(function(){
+        var selfFile = $(this),
+        selfInput = $(this).find('input[type=file]');
+ 
+        selfInput.change(function(){
+            var file = $(this).prop('files')[0],
+            fileRdr = new FileReader(),
+            selfImg = selfFile.find('.imgView1');
+ 
+            if(!this.files.length){
+                if(0 < selfImg.size()){
+                    selfImg.remove();
+                    return;
+                }
+            } else {
+                if(file.type.match('image.*')){
+                    if(!(0 < selfImg.size())){
+                        selfFile.append('<img alt="" class="imgView1">');
+                    }
+                    var prevElm = selfFile.find('.imgView1');
+                    fileRdr.onload = function() {
+                        prevElm.attr('src', fileRdr.result);
+                    }
+                    fileRdr.readAsDataURL(file);
+                } else {
+                    if(0 < selfImg.size()){
+                        selfImg.remove();
+                        return;
+                    }
+                }
+            }
+        });
+    });
+	 var imageInput = $(".imageS");
+    imageInput.each(function(){
+        var selfFile = $(this),
+        selfInput = $(this).find('input[type=file]');
+ 
+        selfInput.change(function(){
+            var file = $(this).prop('files')[0],
+            fileRdr = new FileReader(),
+            selfImg = selfFile.find('.imgView2');
+ 
+            if(!this.files.length){
+                if(0 < selfImg.size()){
+                    selfImg.remove();
+                    return;
+                }
+            } else {
+                if(file.type.match('image.*')){
+                    if(!(0 < selfImg.size())){
+                        selfFile.append('<img alt="" class="imgView2">');
+                    }
+                    var prevElm = selfFile.find('.imgView2');
+                    fileRdr.onload = function() {
+                        prevElm.attr('src', fileRdr.result);
+                    }
+                    fileRdr.readAsDataURL(file);
+                } else {
+                    if(0 < selfImg.size()){
+                        selfImg.remove();
+                        return;
+                    }
+                }
+            }
+        });
+    });
+});
+</script>
+    
+        <form name="inputhight">
+		 <h4>身長入力: <input type="number" name="number1">cm</h4>
+        <a class="button"  onclick="heightSend()" href="#" style="width:200px; height:35px;"><span>自己採寸スタート</span></a>
+		</form>
+       
+    </body>
+
+    </html>

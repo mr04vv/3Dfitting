@@ -1,0 +1,82 @@
+@charset"UTF-8";
+
+/*index.html*/
+
+@keyframes h1img{
+    0%{left:200px; top:100px; font: italic 10em/0em "Times New Roman", serif;}
+    20%{left:200px; top:100px; font: italic 10em/0em "Times New Roman", serif;}
+    100%{left:280px; top:0px; font: italic 5em/0em "Times New Roman", serif;}
+}/*h1アニメーション*/
+
+@keyframes h2img{/*アニメーション*/
+    0%{left:105px; top:200px; font: italic 1.8em/0em "Times New Roman", serif;}
+    20%{left:105px; top:200px; font: italic 1.8em/0em "Times New Roman", serif;}
+    100%{left:105px; top:500px; font: italic 1.8em/0em "Times New Roman", serif;}
+}/*h2アニメーション*/
+
+@keyframes chooseimg{
+    0%{opacity: 0;}
+    40%{opacity: 0;}
+    100%{opacity: 100;}
+}/*2つの画像アニメーション*/
+
+h1{
+    position: absolute;
+    top: 0px;
+    left: 280px;
+    font: italic 5em/0em "Times New Roman", serif;
+    color:aqua;
+    animation: h1img 4s;
+    z-index: 3;/*優先順位*/
+    break;
+}/*Closize*/
+
+h2{
+    position: absolute;
+    top: 500px;
+    left: 105px;
+    font: italic 1.8em/0em "Times New Roman", serif;
+    color: blue;
+    animation: h2img 4s;
+    z-index: 3;/*優先順位*/
+    break;
+}/*サイズ感を試着できるwebアプリケーション*/
+
+#text1{
+    position: absolute;
+    top: 450px;
+    left: 190px;
+    font: italic 2em/1.5em "Times New Roman", serif;
+    z-index: 2;
+    animation: chooseimg 7s;
+}/*採寸スタート*/
+
+#text2{/*試着スタート*/
+    position: absolute;
+    top: 120px;
+    left: 490px;
+    font: italic 2em/1.5em "Times New Roman", serif;
+    z-index: 2;
+    animation: chooseimg 7s;
+}/*試着スタート*/
+
+#first{
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    animation: chooseimg 7s;
+    z-index: 1;
+}/*採寸スタート画像*/
+
+#tryon{
+    position: absolute;
+    top: 100px;
+    left: 410px;
+    animation: chooseimg 7s;
+    z-index: 1;
+}/*試着スタート画像*/
+
+a:hover img{
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+}/*ホバーした時に透過*/

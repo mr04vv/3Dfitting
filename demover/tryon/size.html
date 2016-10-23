@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Measure</title>
+<link rel="stylesheet"
+          href="cursor.css">
+    </head>
+    <body> 
+        <a class="button" href="#" style="width:250px; height:80px;" onclick="jump_main()"><span>START!!</span></a>   
+   <canvas id="mycanvas"></canvas><br />
+ 
+    <script type="text/javascript" src="../main.js"></script>    
+    <script src="processing-1.4.1.min.js" type="text/javascript"></script>
+    <script type="application/processing" data-processing-target="mycanvas"> 
+    
+    //for graph
+int baseX = 80;    //550
+int baseY = 80;    //300
+int holizontal = 400;    //lengh of horizontal bar
+int vartical = 25;    //lengh of vartical bar
+int breadth = 4;    //breadth of bar
+int span = 100;    //length between bar
+//for program
+int i, j;
+
+void setup() {
+
+  size(600,400);
+  background(255);
+  fill(0, 0, 0);
+  noStroke();
+  smooth();
+  println(chest_size);
+
+//char size
+  text("小さすぎ", baseX-25, baseY-30);
+  text("タイト", baseX+83, baseY-30);
+  text("ノーマル", baseX+178, baseY-30);
+  text("ルーズ", baseX+285, baseY-30);
+  text("だるだる", baseX+378, baseY-30);
+//char body
+  text("肩幅", baseX-40, baseY+6);
+  text("ウエスト", baseX-60, baseY+106);
+  text("チェスト", baseX-60, baseY+206);
+
+  for (i=0; i<3; i++) {    //holizpntal bar
+    rect(baseX, baseY+i*span, holizontal, breadth);
+  }
+  for (j=0; j<3; j++) {    //vartical bar
+    for (i=0; i<5; i++) {
+      rect(baseX+i*span, (baseY-10)+j*span, breadth, vartical);
+    }
+  }
+}
+
+int ebaseX=baseX+2;
+int ebaseY=baseY+2;
+
+void draw() {
+  if(shoulder_size>0)
+  myellipse(ebaseX,ebaseY);
+  if(chest_size<0)
+  myellipse(ebaseX+span,ebaseY);
+  if(waist_size<0)
+  myellipse(ebaseX+2*span,ebaseY);
+}
+
+
+void myellipse(int x, int y){
+  fill(255,0,0);
+  ellipse(x,y,12,12);
+}
+
+        </script>
+    </body>
+</html>
