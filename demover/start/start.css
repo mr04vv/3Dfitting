@@ -1,27 +1,27 @@
 @charset"UTF-8";
 
-p{
+/*p{
     width: 100%; 
     min-width: 400px; 
     max-width: 600px;
-}
+}*/
 
 h1{
     position: absolute;
-    left:45%; 
-    top:40%; 
+    top: 48px;
+	left: 200px;
     font: italic 10em/0em "Times New Roman", serif;
     color:aqua;
-    margin: -150px 0px 0px -200px;
+    /*margin: -150px 0px 0px -200px;*/
 }/*Closize*/
 
 h2{
     position: absolute;
-    left:40%; 
-    top:55%; 
+    left:105px; 
+    top:200px; 
     font: italic 1.8em/0em "Times New Roman", serif;
     color: blue;
-    margin: -150px 0px 0px -200px;
+    /*margin: -150px 0px 0px -200px;*/
 }/*サイズ感を試着できるwebアプリケーション*/
 
 .button {

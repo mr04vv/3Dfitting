@@ -5,8 +5,8 @@
     text-align: center;/*文字の位置*/
    font: italic 4em "Times New Roman", serif;
 	position:absolute;
-    top: 450px;
-    left: 650px;
+    top: 430px;
+    left:  280px;
 	background-color:bisque;/*背景の色*/
 	border-radius: 5px; /*ボタンの丸み*/
 	color:gray; /*文字の色*/
