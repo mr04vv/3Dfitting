@@ -14,11 +14,11 @@ function Data(shoulder, chest, waist){
 }
 
 <!--MEN ウォッシュボーダー-->
-var uniT_xs = new Data(40,81,69);
-var uniT_s = new Data(41.5,84,72);
-var uniT_m = new Data(43,92,80);
-var uniT_l = new Data(44.5,100,88);
-var uniT_xl = new Data(46.5,108,96);
+var uniT_xs = new Data(40,84,72);
+var uniT_s = new Data(41.5,88,76);
+var uniT_m = new Data(43,96,84);
+var uniT_l = new Data(44.5,104,92);
+var uniT_xl = new Data(46.5,112,100);
 
 function Dataset(){
     var clone = decodeURIComponent(location.search.substring(1));
