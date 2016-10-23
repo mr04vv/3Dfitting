@@ -1,6 +1,6 @@
 var body_shoulder;
-var body_chest=90;
-var body_waist=70;
+var body_chest;
+var body_waist;
 var shoulder_size;
 var chest_size;
 var waist_size;

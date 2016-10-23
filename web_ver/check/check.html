@@ -51,8 +51,6 @@ void setup() {
   println(body_shoulder);
   println(body_chest);
   println(body_waist);
-  println(uniT_s.shoulder);
-  println(shoulder_size);
 
 //char size
   text("小さすぎ", baseX-25, baseY-30);
@@ -80,12 +78,38 @@ int ebaseY=baseY+2;
 
 void draw() {
 if(!(shoulder_size==0 && chest_size==0 && waist_size==0)){
-  if(shoulder_size>0)
+  if(0.5<shoulder_size)
   myellipse(ebaseX,ebaseY);
-  if(chest_size<0)
-  myellipse(ebaseX+span,ebaseY);
-  if(waist_size<0)
+  else if(0.0<shoulder_size<0.5)
   myellipse(ebaseX+2*span,ebaseY);
+  else if(-0.5<shoulder_size<0.0)
+  myellipse(ebaseX+3*span,ebaseY);
+  else if(-1.0<shoulder_size<-0.5)
+  myellipse(ebaseX+4*span,ebaseY);
+  else
+  myellipse(ebaseX+5*span,ebaseY);
+  
+  if(0.0<chest_size)
+  myellipse(ebaseX,ebaseY+span);
+  else if(-2.0<chest_size<0.0)
+  myellipse(ebaseX+span,ebaseY+span);
+  else if(-5.0<chest_size<-2.0)
+  myellipse(ebaseX+span*2,ebaseY+span);
+  else if(-8.0<chest_size<-5.0)
+  myellipse(ebaseX+span*3,ebaseY+span);
+  else
+  myellipse(ebaseX+span*4,ebaseY+span);
+  
+   if(2.0<waist_size)
+  myellipse(ebaseX,ebaseY+2*span);
+  else if(-2.0<waist_size<2.0)
+  myellipse(ebaseX+span,ebaseY+2*span);
+  else if(-6.0<waist_size<-2.0)
+  myellipse(ebaseX+span*2,ebaseY+2*span);
+  else if(-10.0<waist_size<-6.0)
+  myellipse(ebaseX+span*3,ebaseY+2*span);
+  else
+  myellipse(ebaseX+span*4,ebaseY+2*span);
   }
   if(sizeflag==1){
 setup();
