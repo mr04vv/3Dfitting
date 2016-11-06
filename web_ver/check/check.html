@@ -32,8 +32,8 @@
     <script type="application/processing" data-processing-target="mycanvas"> 
     
     //for graph
-int baseX = 80;    //550
-int baseY = 80;    //300
+int baseX = 550;    //550
+int baseY = 300;    //300
 int holizontal = 400;    //lengh of horizontal bar
 int vartical = 25;    //lengh of vartical bar
 int breadth = 4;    //breadth of bar
@@ -43,78 +43,78 @@ int i, j;
 
 void setup() {
 
-  size(600,400);
-  background(250, 240, 230);
-  fill(0, 0, 0);
-  noStroke();
-  smooth();
-  println(body_shoulder);
-  println(body_chest);
-  println(body_waist);
+    size(600,400);
+    background(250, 240, 230);
+    fill(0, 0, 0);
+    noStroke();
+     smooth();
+     println(body_shoulder);
+     println(body_chest);
+     println(body_waist);
 
 //char size
-  text("小さすぎ", baseX-25, baseY-30);
-  text("タイト", baseX+83, baseY-30);
-  text("ノーマル", baseX+178, baseY-30);
-  text("ルーズ", baseX+285, baseY-30);
-  text("だるだる", baseX+378, baseY-30);
+    text("小さすぎ", baseX-25, baseY-30);
+    text("タイト", baseX+83, baseY-30);
+     text("ノーマル", baseX+178, baseY-30);
+     text("ルーズ", baseX+285, baseY-30);
+     text("だるだる", baseX+378, baseY-30);
 //char body
-  text("肩幅", baseX-40, baseY+6);
-  text("ウエスト", baseX-60, baseY+106);
-  text("チェスト", baseX-60, baseY+206);
+     text("肩幅", baseX-40, baseY+6);
+     text("ウエスト", baseX-60, baseY+106);
+     text("チェスト", baseX-60, baseY+206);
 
-  for (i=0; i<3; i++) {    //holizpntal bar
-    rect(baseX, baseY+i*span, holizontal, breadth);
-  }
-  for (j=0; j<3; j++) {    //vartical bar
-    for (i=0; i<5; i++) {
-      rect(baseX+i*span, (baseY-10)+j*span, breadth, vartical);
+    for (i=0; i<3; i++) {    //holizpntal bar
+         rect(baseX, baseY+i*span, holizontal, breadth);
     }
-  }
+    for (j=0; j<3; j++) {    //vartical bar
+        for (i=0; i<5; i++) {
+            rect(baseX+i*span, (baseY-10)+j*span, breadth, vartical);
+        }
+    }
 }
 
 int ebaseX=baseX+2;
 int ebaseY=baseY+2;
 
 void draw() {
-if(!(shoulder_size==0 && chest_size==0 && waist_size==0)){
-  if(0.5<shoulder_size)
-  myellipse(ebaseX,ebaseY);
-  else if(0.0<shoulder_size<0.5)
-  myellipse(ebaseX+2*span,ebaseY);
-  else if(-0.5<shoulder_size<0.0)
-  myellipse(ebaseX+3*span,ebaseY);
-  else if(-1.0<shoulder_size<-0.5)
-  myellipse(ebaseX+4*span,ebaseY);
-  else
-  myellipse(ebaseX+5*span,ebaseY);
+    if(!(shoulder_size==0 && chest_size==0 && waist_size==0)){
+        if(0.5<shoulder_size)
+            myellipse(ebaseX,ebaseY);
+        else if(0.0<shoulder_size<0.5)
+            myellipse(ebaseX+2*span,ebaseY);
+        else if(-0.5<shoulder_size<0.0)
+            myellipse(ebaseX+3*span,ebaseY);
+        else if(-1.0<shoulder_size<-0.5)
+            myellipse(ebaseX+4*span,ebaseY);
+        else
+            myellipse(ebaseX+5*span,ebaseY);
   
-  if(0.0<chest_size)
-  myellipse(ebaseX,ebaseY+span);
-  else if(-2.0<chest_size<0.0)
-  myellipse(ebaseX+span,ebaseY+span);
-  else if(-5.0<chest_size<-2.0)
-  myellipse(ebaseX+span*2,ebaseY+span);
-  else if(-8.0<chest_size<-5.0)
-  myellipse(ebaseX+span*3,ebaseY+span);
-  else
-  myellipse(ebaseX+span*4,ebaseY+span);
+        if(0.0<chest_size)
+            myellipse(ebaseX,ebaseY+span);
+        else if(-2.0<chest_size<0.0)
+            myellipse(ebaseX+span,ebaseY+span);
+        else if(-5.0<chest_size<-2.0)
+            myellipse(ebaseX+span*2,ebaseY+span);
+        else if(-8.0<chest_size<-5.0)
+            myellipse(ebaseX+span*3,ebaseY+span);
+        else
+            myellipse(ebaseX+span*4,ebaseY+span);
   
-   if(2.0<waist_size)
-  myellipse(ebaseX,ebaseY+2*span);
-  else if(-2.0<waist_size<2.0)
-  myellipse(ebaseX+span,ebaseY+2*span);
-  else if(-6.0<waist_size<-2.0)
-  myellipse(ebaseX+span*2,ebaseY+2*span);
-  else if(-10.0<waist_size<-6.0)
-  myellipse(ebaseX+span*3,ebaseY+2*span);
-  else
-  myellipse(ebaseX+span*4,ebaseY+2*span);
-  }
-  if(sizeflag==1){
-setup();
-sizeflag=0;
-}
+        if(2.0<waist_size)
+            myellipse(ebaseX,ebaseY+2*span);
+        else if(-2.0<waist_size<2.0)
+            myellipse(ebaseX+span,ebaseY+2*span);
+        else if(-6.0<waist_size<-2.0)
+            myellipse(ebaseX+span*2,ebaseY+2*span);
+        else if(-10.0<waist_size<-6.0)
+            myellipse(ebaseX+span*3,ebaseY+2*span);
+        else
+            myellipse(ebaseX+span*4,ebaseY+2*span);
+    }
+    if(sizeflag==1){
+        setup();
+        sizeflag=0;
+    }
 }
 
 void myellipse(int x, int y){
