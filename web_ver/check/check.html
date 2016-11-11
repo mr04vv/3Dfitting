@@ -32,12 +32,15 @@
     <script type="application/processing" data-processing-target="mycanvas"> 
     
     //for graph
-int baseX = 550;    //550
-int baseY = 300;    //300
+int baseX = 80;    //550
+int baseY = 80;    //300
 int holizontal = 400;    //lengh of horizontal bar
 int vartical = 25;    //lengh of vartical bar
 int breadth = 4;    //breadth of bar
 int span = 100;    //length between bar
+int shoulder_size=0.5;
+int chest_size=0.5;
+int waist_size=0.5;
 //for program
 int i, j;
 
@@ -48,9 +51,12 @@ void setup() {
     fill(0, 0, 0);
     noStroke();
      smooth();
+     
+/*　この部分が原因で表示されていなかった
      println(body_shoulder);
      println(body_chest);
      println(body_waist);
+*/
 
 //char size
     text("小さすぎ", baseX-25, baseY-30);
@@ -71,12 +77,14 @@ void setup() {
             rect(baseX+i*span, (baseY-10)+j*span, breadth, vartical);
         }
     }
+
 }
 
 int ebaseX=baseX+2;
 int ebaseY=baseY+2;
 
 void draw() {
+
     if(!(shoulder_size==0 && chest_size==0 && waist_size==0)){
         if(0.5<shoulder_size)
             myellipse(ebaseX,ebaseY);
@@ -84,10 +92,9 @@ void draw() {
             myellipse(ebaseX+2*span,ebaseY);
         else if(-0.5<shoulder_size<0.0)
             myellipse(ebaseX+3*span,ebaseY);
-        else if(-1.0<shoulder_size<-0.5)
+        else 
             myellipse(ebaseX+4*span,ebaseY);
-        else
-            myellipse(ebaseX+5*span,ebaseY);
+
   
         if(0.0<chest_size)
             myellipse(ebaseX,ebaseY+span);
@@ -115,6 +122,7 @@ void draw() {
         setup();
         sizeflag=0;
     }
+
 }
 
 void myellipse(int x, int y){
