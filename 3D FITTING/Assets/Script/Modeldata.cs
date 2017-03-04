@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Modeldata : MonoBehaviour {
 	
-	public float height=0.0f;
-	public float sholder=0.0f;
-	public float chest=0.0f;
-	public float west=0.0f;
+	public float height;
+	public float sholder;
+	public float chest;
+	public float west;
 
 	// Use this for initialization
 
-	public void set(float a,float b, float c,float d){
-		this.height = a;
-		this.sholder = b;
+	public void set(float h,float c, float w,float s){
+		this.height = h;
+		this.sholder = s;
 		this.chest = c;
-		this.west = d;
+		this.west = w;
 	}
 
 }
