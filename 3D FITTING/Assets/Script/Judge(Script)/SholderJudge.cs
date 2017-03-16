@@ -21,11 +21,11 @@ public class SholderJudge : MonoBehaviour {
 	float L_s_L=50.0f;
 
 	public Text S;
-	string s = " ゆるゆる";
-	string ms = " 大きめ";
+	string s = " 大きめ";
+	string ms = " やや大きめ";
 	string mm = " ちょうど良い";
-	string ml = " 小さめ";
-	string l = " きつきつ";
+	string ml = " やや小さめ";
+	string l = " 小さめ";
 	Modeldata human;
 
 	string st;

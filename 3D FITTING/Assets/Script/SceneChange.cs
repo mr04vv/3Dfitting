@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class SceneChange : MonoBehaviour {
 
 	// Use this for initialization
@@ -20,5 +21,11 @@ public class SceneChange : MonoBehaviour {
 	}
 	public void Fitting(){
 		SceneManager.LoadScene ("Fitting");
+	}
+	public void AR(){
+		SceneManager.LoadScene ("AR");
+	}
+	public void QR(){
+		SceneManager.LoadScene ("QRcode");
 	}
 }

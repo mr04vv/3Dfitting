@@ -44,3 +44,5 @@
 /Users/mo-ri-/Documents/Waakvlam/Closize/3D FITTING/Temp/bin/Debug/Mono.Cecil.Mdb.dll
 /Users/mo-ri-/Documents/Waakvlam/Closize/3D FITTING/Temp/bin/Debug/UnityEngine.Purchasing.dll
 /Users/mo-ri-/Documents/Waakvlam/Closize/3D FITTING/Temp/bin/Debug/UnityEngine.Advertisements.dll
+/Users/mo-ri-/Documents/Waakvlam/Closize/3D FITTING/Temp/bin/Debug/Vuforia.UnityExtensions.dll
+/Users/mo-ri-/Documents/Waakvlam/Closize/3D FITTING/Temp/bin/Debug/zxing.unity.dll

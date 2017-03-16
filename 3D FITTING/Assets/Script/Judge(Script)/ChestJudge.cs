@@ -21,11 +21,11 @@ public class ChestJudge : MonoBehaviour {
 	float L_c_L=110.0f;
 
 	public Text C;
-	string s = " ゆるゆる";
-	string ms = " 大きめ";
+	string s = " 大きめ";
+	string ms = " やや大きめ";
 	string mm = " ちょうど良い";
-	string ml = " 小さめ";
-	string l = " きつきつ";
+	string ml = " やや小さめ";
+	string l = " 小さめ";
 	Modeldata human;
 
 	string c;

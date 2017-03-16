@@ -21,11 +21,11 @@ public class HeightJudge : MonoBehaviour {
 	float L_h_L=190.0f;
 
 	public Text H;
-	string s = " ゆるゆる";
-	string ms = " 大きめ";
+	string s = " 大きめ";
+	string ms = " やや大きめ";
 	string mm = " ちょうど良い";
-	string ml = " 小さめ";
-	string l = " きつきつ";
+	string ml = " やや小さめ";
+	string l = " 小さめ";
 	Modeldata human;
 
 	string h;
