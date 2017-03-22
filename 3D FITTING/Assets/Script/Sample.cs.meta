@@ -1,10 +1,14 @@
 fileFormatVersion: 2
 guid: 564cff8abcb4f456aae5a86aa2df988f
-timeCreated: 1489655068
+timeCreated: 1489945331
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - qrCodeImage: {instanceID: 0}
+  - resultText: {instanceID: 0}
+  - Quad: {instanceID: 0}
+  - popup: {fileID: 1567455591701130, guid: c83ff2d7ff06d44179d3254a5524438c, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

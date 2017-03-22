@@ -5,20 +5,20 @@ using UnityEngine.UI;
 
 public class WestJudge : MonoBehaviour {
 
-	float S_w_S=45.0f;
-	float S_w_MS=50.0f;
-	float S_w_ML=55.0f;
-	float S_w_L=60.0f;
+	float S_w_S=68.0f;
+	float S_w_MS=70.0f;
+	float S_w_ML=76.0f;
+	float S_w_L=78.0f;
 
-	float M_w_S=60.0f;
-	float M_w_MS=65.0f;
-	float M_w_ML=70.0f;
-	float M_w_L=75.0f;
+	float M_w_S=72.0f;
+	float M_w_MS=76.0f;
+	float M_w_ML=84.0f;
+	float M_w_L=88.0f;
 
-	float L_w_S=75.0f;
-	float L_w_MS=80.0f;
-	float L_w_ML=85.0f;
-	float L_w_L=90.0f;
+	float L_w_S=84.0f;
+	float L_w_MS=86.0f;
+	float L_w_ML=92.0f;
+	float L_w_L=100.0f;
 
 	public Text W;
 	string s = " 大きめ";

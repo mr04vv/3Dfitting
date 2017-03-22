@@ -6,19 +6,19 @@ using UnityEngine.UI;
 public class HeightJudge : MonoBehaviour {
 
 	float S_h_S=150.0f;
-	float S_h_MS=157.0f;
-	float S_h_ML=167.0f;
-	float S_h_L=170.0f;
+	float S_h_MS=163.0f;
+	float S_h_ML=169.0f;
+	float S_h_L=172.0f;
 
 	float M_h_S=160.0f;
-	float M_h_MS=167.0f;
-	float M_h_ML=177.0f;
+	float M_h_MS=165.0f;
+	float M_h_ML=174.0f;
 	float M_h_L=180.0f;
 
 	float L_h_S=170.0f;
-	float L_h_MS=177.0f;
-	float L_h_ML=187.0f;
-	float L_h_L=190.0f;
+	float L_h_MS=170.0f;
+	float L_h_ML=178.0f;
+	float L_h_L=185.0f;
 
 	public Text H;
 	string s = " 大きめ";

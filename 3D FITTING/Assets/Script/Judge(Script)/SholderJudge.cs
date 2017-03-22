@@ -10,15 +10,15 @@ public class SholderJudge : MonoBehaviour {
 	float S_s_ML=44.5f;
 	float S_s_L=45.0f;
 
-	float M_s_S=45.0f;
-	float M_s_MS=46.0f;
-	float M_s_ML=47.0f;
-	float M_s_L=48.0f;
+	float M_s_S=44.0f;
+	float M_s_MS=44.5f;
+	float M_s_ML=45.0f;
+	float M_s_L=45.5f;
 
-	float L_s_S=48.0f;
-	float L_s_MS=48.5f;
-	float L_s_ML=49.0f;
-	float L_s_L=50.0f;
+	float L_s_S=44.5f;
+	float L_s_MS=45.0f;
+	float L_s_ML=45.5f;
+	float L_s_L=46.0f;
 
 	public Text S;
 	string s = " 大きめ";

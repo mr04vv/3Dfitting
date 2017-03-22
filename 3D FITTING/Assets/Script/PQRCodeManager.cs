@@ -1,26 +1,46 @@
 ﻿using ZXing;
 using ZXing.QrCode;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PQRCodeManager :MonoBehaviour {
 
 
+	public static GameObject popo;
 
+	// Use this for initialization
+	void Awake(){
+		popo=GameObject.Find("Panel");
+	}
+		
+
+	
 	/// <summary>
 	/// QRコード読み取り)(返り文字列が-1の場合は、読み込めていない)
 	/// </summary>
 	/// <param name="cameraTexture">Camera texture.</param>
-	public string read(WebCamTexture cameraTexture){
+	public int read(WebCamTexture cameraTexture){
+		
 		BarcodeReader reader = new BarcodeReader ();
 		Color32[] color = cameraTexture.GetPixels32 ();
 		int width = cameraTexture.width;
 		int height = cameraTexture.height;
 		Result result = reader.Decode (color, width, height);
 		if (result != null){
-			return result.Text;
+			Result res = result;
+			cameraTexture.Pause ();
+			if (res != null) {
+				popo.SetActive (true);
+			
+		
+				return 0;
+			}
+			//add_obj.add_obj1 (result);
+
 		}
-		return "";//エラー時
+		return -1;//エラー時
 	}
+
 
 
 	/// <summary>

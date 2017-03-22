@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour {
 
+
 	// Use this for initialization
 	public void Register(){
 		SceneManager.LoadScene ("Register");
@@ -27,5 +28,8 @@ public class SceneChange : MonoBehaviour {
 	}
 	public void QR(){
 		SceneManager.LoadScene ("QRcode");
+	}
+	public void NEW(){
+		SceneManager.LoadScene ("New Scene");
 	}
 }

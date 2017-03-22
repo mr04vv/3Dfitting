@@ -6,38 +6,44 @@ public class Sample : MonoBehaviour {
 
 	public int Width = 960;
 	public int Height = 540;
-	public int FPS = 30;
+	public int FPS = 12;
 
 
 	//CanvasのUIに紐付けてください。///////////
 	public RawImage qrCodeImage;//生成したQRコード
-	public Text resultText;//読み取り結果
+	public int resultText=-1;//読み取り結果
 
 	private WebCamTexture webcamTexture;
 	private  PQRCodeManager qrManager;
 	public GameObject Quad;
+	public GameObject pop;
 
 
 	// Use this for initialization
 	void Start () {
-
+		
+		var euler = transform.localRotation.eulerAngles;
 		//カメラ準備
 		WebCamDevice[] devices = WebCamTexture.devices;
-		webcamTexture = new WebCamTexture();
+		if(Application.platform == RuntimePlatform.IPhonePlayer||Application.platform == RuntimePlatform.Android){
+			transform.localRotation = Quaternion.Euler( euler.x, euler.y, euler.z - 90 );
+		}
+		webcamTexture = new WebCamTexture(devices[0].name,Width,Height,FPS);
 		GetComponent<Renderer> ().material.mainTexture = webcamTexture;
 		webcamTexture.Play();
+		
 
-
-
+		pop.SetActive (false);
 		//QRコード管理クラス
 		this.qrManager = new PQRCodeManager ();
 
 	}
-
 	// Update is called once per frame
 	void Update () {
 		//カメラから読み取り
-		resultText.text = this.qrManager.read (webcamTexture);
+		if(resultText != 0) {
+			resultText = this.qrManager.read (webcamTexture);
+		}
 	}
 
 

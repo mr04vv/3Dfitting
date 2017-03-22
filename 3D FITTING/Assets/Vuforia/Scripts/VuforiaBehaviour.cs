@@ -22,6 +22,7 @@ namespace Vuforia
 
             gameObject.AddComponent<ComponentFactoryStarterBehaviour>();
 
+
             base.Awake();
         }
 

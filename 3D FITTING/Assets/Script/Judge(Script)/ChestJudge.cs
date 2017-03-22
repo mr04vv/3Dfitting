@@ -5,19 +5,19 @@ using UnityEngine.UI;
 
 public class ChestJudge : MonoBehaviour {
 
-	float S_c_S=70.0f;
-	float S_c_MS=75.0f;
-	float S_c_ML=80.0f;
-	float S_c_L=85.0f;
+	float S_c_S=78.0f;
+	float S_c_MS=84.0f;
+	float S_c_ML=92.0f;
+	float S_c_L=96.0f;
 
-	float M_c_S=85.0f;
-	float M_c_MS=90.0f;
-	float M_c_ML=95.0f;
-	float M_c_L=100.0f;
+	float M_c_S=84.0f;
+	float M_c_MS=88.0f;
+	float M_c_ML=96.0f;
+	float M_c_L=102.0f;
 
-	float L_c_S=95.0f;
-	float L_c_MS=100.0f;
-	float L_c_ML=105.0f;
+	float L_c_S=88.0f;
+	float L_c_MS=94.0f;
+	float L_c_ML=102.0f;
 	float L_c_L=110.0f;
 
 	public Text C;
