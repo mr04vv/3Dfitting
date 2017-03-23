@@ -41,7 +41,7 @@ public class Sample : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//カメラから読み取り
-		if(resultText != 0) {
+		if(resultText== -1) {
 			resultText = this.qrManager.read (webcamTexture);
 		}
 	}

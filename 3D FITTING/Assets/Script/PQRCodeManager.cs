@@ -12,7 +12,7 @@ public class PQRCodeManager :MonoBehaviour {
 	void Awake(){
 		popo=GameObject.Find("Panel");
 	}
-		
+	public static Result res;
 
 	
 	/// <summary>
@@ -27,18 +27,26 @@ public class PQRCodeManager :MonoBehaviour {
 		int height = cameraTexture.height;
 		Result result = reader.Decode (color, width, height);
 		if (result != null){
-			Result res = result;
+			res = result;
 			cameraTexture.Pause ();
 			if (res != null) {
 				popo.SetActive (true);
 			
 		
-				return 0;
+				return int.Parse(res.Text);
 			}
 			//add_obj.add_obj1 (result);
 
 		}
 		return -1;//エラー時
+	}
+
+	public static int result(){
+		if (res != null) {
+			return int.Parse (res.Text);
+		} else {
+			return -1;
+		}
 	}
 
 

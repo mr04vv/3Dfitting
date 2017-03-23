@@ -62,6 +62,7 @@
      <Compile Include="Assets\Script\SetText.cs" />
      <Compile Include="Assets\Script\add_obj.cs" />
      <Compile Include="Assets\Script\cloth_on.cs" />
+     <Compile Include="Assets\Script\onar.cs" />
      <Compile Include="Assets\Script\rotation.cs" />
      <Compile Include="Assets\Vuforia\Scripts\BackgroundPlaneBehaviour.cs" />
      <Compile Include="Assets\Vuforia\Scripts\CloudRecoBehaviour.cs" />
