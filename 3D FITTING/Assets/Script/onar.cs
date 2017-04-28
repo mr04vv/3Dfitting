@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class onar : MonoBehaviour {
 
-	public GameObject tops1;
-	public GameObject tops2;
-	public GameObject tops3;
+	//public GameObject tops1;
+	//public GameObject tops2;
+	//public GameObject tops3;
 	public GameObject human;
 	public GameObject b;
 	public GameObject g;
@@ -25,7 +25,9 @@ public class onar : MonoBehaviour {
 			r = GameObject.Find ("topsred(Clone)");
 			off (r);
 		}
-		b= Instantiate (tops1);
+		//prefabにあるtops1を生成
+		//b= Instantiate (tops1);
+		//生成したオブジェクトの親を指
 		b.transform.SetParent (human.transform, false);
 	}
 	public void settop2(){
@@ -42,7 +44,7 @@ public class onar : MonoBehaviour {
 			off (r);
 		}
 
-		g=Instantiate (tops2);
+		//g=Instantiate (tops2);
 		g.transform.SetParent (human.transform, false);
 	}
 	public void settop3(){
@@ -58,7 +60,7 @@ public class onar : MonoBehaviour {
 			r = GameObject.Find ("topsred(Clone)");
 			off (r);
 		}
-		r=Instantiate (tops3);
+		//r=Instantiate (tops3);
 		r.transform.SetParent (human.transform, false);
 	}
 	public void off(GameObject a){

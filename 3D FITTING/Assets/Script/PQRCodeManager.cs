@@ -43,6 +43,7 @@ public class PQRCodeManager :MonoBehaviour {
 
 	public static int result(){
 		if (res != null) {
+			//読み取ったqrコードの結果がnullじゃなければqrコードの数値をreturn
 			return int.Parse (res.Text);
 		} else {
 			return -1;

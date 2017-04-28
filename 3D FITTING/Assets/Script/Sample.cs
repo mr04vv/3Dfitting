@@ -17,11 +17,13 @@ public class Sample : MonoBehaviour {
 	private  PQRCodeManager qrManager;
 	public GameObject Quad;
 	public GameObject pop;
-
+	public float timeOut = 1.0f;
+	private float timeElapsed;
 
 	// Use this for initialization
 	void Start () {
-		
+
+
 		var euler = transform.localRotation.eulerAngles;
 		//カメラ準備
 		WebCamDevice[] devices = WebCamTexture.devices;
@@ -41,8 +43,12 @@ public class Sample : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//カメラから読み取り
-		if(resultText== -1) {
+		//１秒おきにqrコード読み取りを実行するように制御
+		//実行し続けるとカメラがカクカクになる（原因不明）
+		timeElapsed += Time.deltaTime;
+		if(timeElapsed >= timeOut && resultText== -1) {
 			resultText = this.qrManager.read (webcamTexture);
+			timeElapsed = 0.0f;
 		}
 	}
 

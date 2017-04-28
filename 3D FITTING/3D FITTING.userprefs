@@ -1,30 +1,28 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Sample.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Judge(Script)/ChestJudge.cs">
     <Files>
-      <File FileName="Assets/Script/Sample.cs" Line="9" Column="21" />
-      <File FileName="Assets/Script/Judge(Script)/ChestJudge.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/SceneChange.cs" Line="1" Column="1" />
+      <File FileName="Assets/Vuforia/Editor/Scripts/ExtensionImport.cs" Line="1" Column="1" />
       <File FileName="Assets/Script/Modeldata.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/SaveScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/SetText.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/rotation.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Judge(Script)/HeightJudge.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Judge(Script)/WestJudge.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Judge(Script)/SholderJudge.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scene/Fitting/NewBehaviourScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/PQRCodeManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/Sample.cs" Line="1" Column="1" />
       <File FileName="Assets/Script/cloth_on.cs" Line="1" Column="1" />
       <File FileName="Assets/Vuforia/Scripts/DefaultTrackableEventHandler.cs" Line="1" Column="1" />
       <File FileName="Assets/Vuforia/Scripts/VuforiaRuntimeInitialization.cs" Line="1" Column="1" />
       <File FileName="Assets/Vuforia/Scripts/VuforiaBehaviour.cs" Line="1" Column="1" />
       <File FileName="Assets/Vuforia/Scripts/Utilities/VRIntegrationHelper.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/PQRCodeManager.cs" Line="1" Column="1" />
       <File FileName="Assets/Script/add_obj.cs" Line="1" Column="1" />
       <File FileName="Assets/Vuforia/Editor/Scripts/Unzipper/SharpZipLibUnzipper.cs" Line="1" Column="1" />
       <File FileName="Assets/Vuforia/Scripts/VuMarkBehaviour.cs" Line="1" Column="1" />
       <File FileName="Assets/Vuforia/Scripts/MaskOutBehaviour.cs" Line="1" Column="1" />
       <File FileName="Assets/Vuforia/Scripts/VideoBackgroundBehaviour.cs" Line="1" Column="1" />
-      <File FileName="Assets/Vuforia/Editor/Scripts/ComponentFactoryStarter/ComponentFactoryStarter.cs" Line="23" Column="54" />
+      <File FileName="Assets/Vuforia/Editor/Scripts/ComponentFactoryStarter/ComponentFactoryStarter.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/onar.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/Judge(Script)/ChestJudge.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/SetText.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/Scene.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/SaveScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/Clothmake.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

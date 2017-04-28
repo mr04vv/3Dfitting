@@ -75,6 +75,7 @@ public class cloth_on : MonoBehaviour {
 	//}
 	public void settop1(){
 		if (b != null) {
+			//新しい服を着る前に着用いてる服を検索してオブジェクトを削除する
 			b = GameObject.Find ("topsgblue(Clone)");
 			off (b);
 		}
@@ -86,6 +87,7 @@ public class cloth_on : MonoBehaviour {
 			r = GameObject.Find ("topsred(Clone)");
 			off (r);
 		}
+		//削除した後にprefabにあるtops1を生成
 		b= Instantiate (tops1);
 	}
 	public void settop2(){
@@ -122,10 +124,12 @@ public class cloth_on : MonoBehaviour {
 	}
 
 	public void setcloth(GameObject a){
+		//aの存在をアクティブにする
 		a.SetActive (true);
 	}
 
 	public void off(GameObject a){
+		//aを削除する関数
 		GameObject.Destroy(a);
 	}
 	// Update is called once per frame
